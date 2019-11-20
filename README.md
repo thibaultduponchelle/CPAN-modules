@@ -2,6 +2,8 @@
 :trollface: Usage of this module will curse your terminal
 
 ## Example
+
+The code ...
 ```
 #!usr/bin/env perl 
 
@@ -10,7 +12,7 @@ use Acme::LSD;
 print `man man`;
 ```
 
-Will produce :
+... will produce
 
 ![acmelsd](acmelsd.png)
 
