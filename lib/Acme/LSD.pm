@@ -14,20 +14,20 @@ sub PRINT {
     shift;
 
     foreach my $str (@_) {
-	      my $copy = $str;
-	      $copy =~ s/[^\w']/ /g;   # convert all non-words into spaces
-	      $copy =~ s/ +/ /g;       # convert all multiple spaces into single space
-	      $copy =~ tr/A-Z/a-z/;    # convert all words to lowercase
-	      foreach my $char (split("", $copy)) {
-	          my $r = int(rand(6)) + 31;
-	          my $s = int(rand(8));
-            print $OLD_STDOUT "\033[" . "$s;$r" . "m$char\033[0m";
+        my $copy = $str;
+        $copy =~ s/[^\w']/ /g;   # convert all non-words into spaces
+        $copy =~ s/ +/ /g;       # convert all multiple spaces into single space
+        $copy =~ tr/A-Z/a-z/;    # convert all words to lowercase
+        foreach my $char (split("", $copy)) {
+            my $r = int(rand(6)) + 31;
+            my $s = int(rand(8));
+	    print TRUE_STDOUT "\033[" . "$s;$r" . "m$char\033[0m";
         }
     }	
 }
 
-tie *PRINTOUT, 'Acme::LSD';
-our $OLD_STDOUT = select( *PRINTOUT );
+open(TRUE_STDOUT, '>', '/dev/stdout');
+tie *STDOUT, __PACKAGE__, (*STDOUT);
 
 1;
 __END__
