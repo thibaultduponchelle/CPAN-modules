@@ -20,8 +20,6 @@ print `man man`;
 - [How can I hook into Perl's print?](https://stackoverflow.com/questions/387702/how-can-i-hook-into-perls-print/388211#388211)
 - My [C version](https://github.com/thibaultduponchelle/lsd)
 
-    use Acme::LSD;
-
 # LICENSE
 
 Copyright (C) Thibault DUPONCHELLE.
