@@ -1,0 +1,7 @@
+{
+    "version" : "0.1.0",
+    "name"    : "Acme-LSD",
+    "author"  : "Thibault DUPONCHELLE",
+    "abstract": "A module to colorize your prints",
+    "license" : "perl"
+}
