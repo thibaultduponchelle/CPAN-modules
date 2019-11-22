@@ -1,4 +1,9 @@
 package Acme::LSD;
+use 5.008001;
+use strict;
+use warnings;
+
+our $VERSION = "0.01";
 
 use base qw<Tie::Handle>;
 use Symbol qw<geniosym>;
@@ -25,3 +30,37 @@ tie *PRINTOUT, 'Acme::LSD';
 our $OLD_STDOUT = select( *PRINTOUT );
 
 1;
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+Acme::LSD - A dumb module that colorize your prints
+
+=head1 SYNOPSIS
+
+    use Acme::LSD;
+
+    # That's all ! 
+    # (You will see the effect as soon as you print something...)
+    # e.g. 
+    print("Survive just one more day\n");
+
+=head1 DESCRIPTION
+
+Acme::LSD is a module that overrides the CORE::GLOBAL::print function.
+
+=head1 LICENSE
+
+Copyright (C) Thibault DUPONCHELLE.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+Thibault DUPONCHELLE E<lt>thibault.duponchelle@gmail.comE<gt>
+
+=cut
+
