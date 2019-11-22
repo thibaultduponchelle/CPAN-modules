@@ -22,10 +22,6 @@ print `man man`;
 
     use Acme::LSD;
 
-# DESCRIPTION
-
-Acme::LSD is ...
-
 # LICENSE
 
 Copyright (C) Thibault DUPONCHELLE.
