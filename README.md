@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/thibaultduponchelle/Acme-LSD.svg?branch=master)](https://travis-ci.org/thibaultduponchelle/Acme-LSD)
+
 # Acme::LSD
 :trollface: Usage of this module will curse your terminal
 
