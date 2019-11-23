@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/thibaultduponchelle/Acme-LSD.svg?branch=master)](https://travis-ci.org/thibaultduponchelle/Acme-LSD)
+[![Kritika Analysis Status](https://kritika.io/users/thibaultduponchelle/repos/7428549952391059/heads/master/status.svg)](https://kritika.io/users/thibaultduponchelle/repos/7428549952391059/heads/master/)
 
 # Acme::LSD
 :trollface: Usage of this module will curse your terminal
