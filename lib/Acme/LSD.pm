@@ -7,6 +7,7 @@ our $VERSION = "0.01";
 
 use base qw<Tie::Handle>;
 use Symbol qw<geniosym>;
+my $TRUE_STDOUT;
 
 sub TIEHANDLE { return bless geniosym, __PACKAGE__ }
 
@@ -18,15 +19,15 @@ sub PRINT {
         $copy =~ s/[^\w']/ /g;   # convert all non-words into spaces
         $copy =~ s/ +/ /g;       # convert all multiple spaces into single space
         $copy =~ tr/A-Z/a-z/;    # convert all words to lowercase
-        foreach my $char (split("", $copy)) {
+        foreach my $char (split(//, $copy)) {
             my $r = int(rand(6)) + 31;
             my $s = int(rand(8));
-	    print TRUE_STDOUT "\033[" . "$s;$r" . "m$char\033[0m";
+	    print $TRUE_STDOUT "\033[" . "$s;$r" . "m$char\033[0m";
         }
     }	
 }
 
-open(TRUE_STDOUT, '>', '/dev/stdout');
+open($TRUE_STDOUT, '>', '/dev/stdout');
 tie *STDOUT, __PACKAGE__, (*STDOUT);
 
 1;
