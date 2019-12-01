@@ -29,7 +29,3 @@ Copyright (C) Thibault DUPONCHELLE.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-# AUTHOR
-
-Thibault DUPONCHELLE <thibault.duponchelle@gmail.com>
