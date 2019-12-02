@@ -8,7 +8,7 @@
 
 The code ...
 ```
-#!usr/bin/env perl 
+#!/usr/bin/env perl 
 
 use Acme::LSD;
 
