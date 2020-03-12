@@ -52,7 +52,7 @@ Acme::LSD - A dumb module that colorize your prints
 
 =head1 DESCRIPTION
 
-Acme::LSD is a module that overrides the CORE::GLOBAL::print function.
+Acme::LSD is a module that overrides the B<CORE::GLOBAL::print> function.
 
 =head2 EXAMPLE
 
