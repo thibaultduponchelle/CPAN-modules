@@ -1,10 +1,10 @@
 {
-   "abstract" : "A module to colorize your prints",
+   "abstract" : "A dumb module that colorize your prints",
    "author" : [
       "Thibault DUPONCHELLE <thibault.duponchelle@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.1.7, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Minilla/v3.1.9, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "perl_5"
    ],
@@ -52,7 +52,22 @@
       }
    },
    "release_status" : "unstable",
-   "version" : "0.01",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/thibaultduponchelle/Acme-LSD/issues"
+      },
+      "homepage" : "https://github.com/thibaultduponchelle/Acme-LSD",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/thibaultduponchelle/Acme-LSD.git",
+         "web" : "https://github.com/thibaultduponchelle/Acme-LSD"
+      }
+   },
+   "version" : "0.02",
+   "x_contributors" : [
+      "Thibault DUPONCHELLE <thibault.duponchelle@amadeus.com>",
+      "thibaultduponchelle <580360+thibaultduponchelle@users.noreply.github.com>"
+   ],
    "x_serialization_backend" : "JSON::PP version 2.27400_02",
    "x_static_install" : 1
 }
