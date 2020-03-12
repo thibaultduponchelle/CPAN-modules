@@ -1,6 +1,9 @@
 Revision history for Perl extension Acme-LSD
 
 {{$NEXT}}
+    - Localize $\
+
+0.03 2020-03-12T12:21:05Z
     - Fix say (issue reported by tobyink)
 
 0.02 2020-03-12T10:22:33Z
