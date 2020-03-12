@@ -13,7 +13,7 @@ sub TIEHANDLE { return bless geniosym, __PACKAGE__ }
 
 sub PRINT {
     shift;
-    undef $\;
+    local $\ = undef;
 
     foreach my $str (@_) {
         my $copy = $str;
