@@ -1,10 +1,3 @@
-package Alien::Libevent;
-
-use strict;
-use warnings;
-
-our $VERSION = '2.0';
-
 =head1 NAME
 
 Alien::Libevent - Wrapper for installing libevent v1.4.13
@@ -43,6 +36,3 @@ it under the same terms as Perl itself.
 
 L<https://github.com/thibaultduponchelle/Alien-Libevent>
 
-=cut
-
-1;

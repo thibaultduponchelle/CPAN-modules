@@ -1,8 +1,9 @@
 --- #YAML:1.0
 name:               Alien-Libevent
-version:            0.01004
-abstract:           Wrapper for installing libevent v1.4.13
+version:            2.0
+abstract:           Wrapper for installing libevent
 author:
+    - Thibault Duponchelle <thibault.duponchelle@gmail.com>
     - Johannes Plunien <plu@cpan.org>
 license:            unknown
 distribution_type:  module
@@ -21,3 +22,8 @@ generated_by:       ExtUtils::MakeMaker version 6.56
 meta-spec:
     url:      http://module-build.sourceforge.net/META-spec-v1.4.html
     version:  1.4
+resources:
+  IRC: irc://irc.perl.org/#native
+  bugtracker: https://github.com/thibaultduponchelle/Alien-Libevent/issues
+  homepage: https://metacpan.org/pod/Alien::Build
+  repository: git://github.com/thibaultduponchelle/Alien-Libevent.git
