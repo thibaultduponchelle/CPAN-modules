@@ -1,9 +1,10 @@
 use strict;
 use warnings;
-use inc::Devel::CheckLib;
+use Devel::CheckLib;
 use Cwd ();
 use ExtUtils::MakeMaker;
 use File::Spec;
+use Alien::libuuid;
 
 if ( -e 'MANIFEST.SKIP' ) {
     system('pod2text lib/Alien/Gearman.pm > README');
@@ -29,6 +30,13 @@ my $LIBGEARMAN_VERSION = '0.12';
 
 my $CCFLAGS = $ENV{CCFLAGS} || '-I/usr/local/include';
 my $LDFLAGS = $ENV{LDFLAGS} || '-L/usr/local/lib';
+
+my $uuid_cflags = Alien::libuuid->cflags();
+$uuid_cflags =~ s{/uuid\b}{};
+$CCFLAGS .= " " . $uuid_cflags;
+
+$LDFLAGS .= " " . Alien::libuuid->libs();
+
 
 eval { Devel::CheckLib::assert_lib( lib => "gearman", LIBS => $LDFLAGS ) };
 
@@ -76,6 +84,8 @@ WriteMakefile(
     LDFLAGS            => $LDFLAGS,
     NAME               => 'Alien-Gearman',
     CONFIGURE_REQUIRES => {
+        'Devel::CheckLib' => '0',
+        'Alien::libuuid' => '0',
         'Alien::Libevent' => '0.01004',
         'Archive::Tar'    => 0,
         'File::Spec'      => 0,
