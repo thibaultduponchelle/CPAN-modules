@@ -3,11 +3,11 @@ package Alien::Libevent;
 use strict;
 use warnings;
 
-our $VERSION = '2.0';
+our $VERSION = '2.1';
 
 =head1 NAME
 
-Alien::Libevent - Wrapper for installing libevent v1.4.13
+Alien::Libevent - Wrapper for installing libevent
 
 =head1 DESCRIPTION
 
