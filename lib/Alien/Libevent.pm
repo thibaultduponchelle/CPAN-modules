@@ -26,6 +26,7 @@ Johannes Plunien E<lt>plu@cpan.orgE<gt>
 =head1 COPYRIGHT AND LICENSE
 
 Copyright 2020 by Thibault Duponchelle
+
 Copyright 2009 by Johannes Plunien
 
 This library is free software; you can redistribute it and/or modify
