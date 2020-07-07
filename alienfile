@@ -7,18 +7,11 @@ share {
 
   plugin 'PkgConfig' => 'libevent';
 
-  # The first download which succeeds will be used
-  #download [ 'wget https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz' ];
-  #download [ 'curl -O https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz' ];
-
   start_url 'https://libevent.org/';
   plugin 'Download' => (
     filter => qr/^libevent-.*-stable\.tar\.gz$/,
     version => qr/([0-9\.]+)/,
   );
-
-  # Use tar to extract the tarball
-  #extract [ 'tar zxf %{.install.download}' ];
 
   plugin 'Extract';
   
