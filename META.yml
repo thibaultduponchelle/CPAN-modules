@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Alien-Libevent
-version:            2.0
+version:            2.1
 abstract:           Wrapper for installing libevent
 author:
     - Thibault Duponchelle <thibault.duponchelle@gmail.com>
