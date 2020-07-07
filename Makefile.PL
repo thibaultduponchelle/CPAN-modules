@@ -32,7 +32,6 @@ my $CCFLAGS = $ENV{CCFLAGS} || '-I/usr/local/include';
 my $LDFLAGS = $ENV{LDFLAGS} || '-L/usr/local/lib';
 
 my $uuid_cflags = Alien::libuuid->cflags();
-$uuid_cflags =~ s{/uuid\b}{};
 $CCFLAGS .= " " . $uuid_cflags;
 
 $LDFLAGS .= " " . Alien::libuuid->libs();
