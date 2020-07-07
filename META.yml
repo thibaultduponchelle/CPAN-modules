@@ -25,5 +25,5 @@ meta-spec:
 resources:
   IRC: irc://irc.perl.org/#native
   bugtracker: https://github.com/thibaultduponchelle/Alien-Libevent/issues
-  homepage: https://metacpan.org/pod/Alien::Build
+  homepage: https://metacpan.org/pod/Alien::Libevent
   repository: git://github.com/thibaultduponchelle/Alien-Libevent.git
