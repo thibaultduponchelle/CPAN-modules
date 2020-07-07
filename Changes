@@ -1,5 +1,8 @@
 Revision history for Alien-Libevent
 
+2.1      Tue Jul 07 2020
+         - Documentation updates
+
 2.0      Tue Jul 07 2020
          - Migrate to alienfile \o/
          - Use latest libevent
