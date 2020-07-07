@@ -28,6 +28,21 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Alien::Base" => "0.038"
   },
+  META_MERGE => {
+        no_index => {
+            # Module::Metadata is inferring version from $version::VERSION
+            # "in" is a PAUSE misparse.
+            package   => [ qw(DynaLoader in version) ],
+            directory => [ qw(bundled my) ],
+        },
+        resources => {
+            license     => 'http://dev.perl.org/licenses/',
+            homepage    => 'https://metacpan.org/release/Alien-Libevent',
+            bugtracker  => 'https://github.com/thibaultduponchelle/Alien-Libevent/issues',
+            repository  => 'https://github.com/thibaultduponchelle/Alien-Libevent.git',
+            IRC         => 'irc://irc.perl.org/#native'
+        },
+    },
 );
 
 my $abmm = Alien::Build::MM->new;
