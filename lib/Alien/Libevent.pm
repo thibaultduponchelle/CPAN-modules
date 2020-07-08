@@ -2,6 +2,7 @@ package Alien::Libevent;
 
 use strict;
 use warnings;
+use base qw( Alien::Base );
 
 our $VERSION = '2.2';
 

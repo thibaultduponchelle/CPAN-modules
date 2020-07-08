@@ -1,11 +1,11 @@
 use alienfile;
 
+plugin 'PkgConfig' => 'libevent';
+
 # If the probe fails to find an already installed libevent, the
 # "share" block contains instructions for downloading and
 # installing it.
 share {
-
-  plugin 'PkgConfig' => 'libevent';
 
   start_url 'https://libevent.org/';
   plugin 'Download' => (
