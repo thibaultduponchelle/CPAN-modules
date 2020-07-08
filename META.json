@@ -26,9 +26,7 @@
             "Archive::Tar" : "0",
             "Config" : "0",
             "HTTP::Tiny" : "0.044",
-            "IO::Socket::SSL" : "1.56",
             "Mojo::DOM58" : "1.00",
-            "Net::SSLeay" : "1.49",
             "Sort::Versions" : "0",
             "URI" : "0",
             "URI::Escape" : "0"
@@ -70,9 +68,7 @@
             "Archive::Tar" : "0",
             "Config" : "0",
             "HTTP::Tiny" : "0.044",
-            "IO::Socket::SSL" : "1.56",
             "Mojo::DOM58" : "1.00",
-            "Net::SSLeay" : "1.49",
             "Sort::Versions" : "0",
             "URI" : "0",
             "URI::Escape" : "0"
