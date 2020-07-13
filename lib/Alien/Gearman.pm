@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use base qw( Alien::Base );
 
-our $VERSION = '0.01004';
+our $VERSION = '1.0';
 
 =head1 NAME
 

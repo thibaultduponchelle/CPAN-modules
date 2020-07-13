@@ -41,7 +41,7 @@ resources:
   homepage: https://metacpan.org/release/Alien-Gearman
   license: http://dev.perl.org/licenses/
   repository: https://github.com/thibaultduponchelle/Alien-Gearman.git
-version: '0.01004'
+version: '1.0'
 x_alienfile:
   generated_by: 'Alien::Build::MM version 2.26'
   requires:
