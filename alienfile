@@ -1,8 +1,5 @@
 use alienfile;
 
-use Alien::libuuid;
-use Alien::Libevent;
-
 plugin 'PkgConfig' => 'libgearman';
 
 share {
