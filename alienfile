@@ -1,0 +1,25 @@
+use alienfile;
+
+use Alien::libuuid;
+use Alien::Libevent;
+
+plugin 'PkgConfig' => 'libgearman';
+
+share {
+
+  plugin 'Build::SearchDep' => (
+    aliens => [qw( Alien::libuuid Alien::Libevent )],
+  );
+
+  start_url 'http://launchpad.net/gearmand/+milestone/0.12';
+  plugin 'Download' => (
+    filter => qr/^gearmand-.*\.tar\.gz$/,
+    version => qr/([0-9\.]+)/,
+  );
+
+  plugin 'Extract';
+  
+  plugin 'Build::Autoconf';
+
+};
+
