@@ -8,7 +8,7 @@ share {
     aliens => [qw( Alien::libuuid Alien::Libevent )],
   );
 
-  start_url 'http://launchpad.net/gearmand/+milestone/0.12';
+  start_url 'https://launchpad.net/gearmand/+milestone/0.12';
   plugin 'Download' => (
     filter => qr/^gearmand-.*\.tar\.gz$/,
     version => qr/([0-9\.]+)/,

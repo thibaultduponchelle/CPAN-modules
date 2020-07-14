@@ -29,7 +29,9 @@
             "Config" : "0",
             "Env::ShellWords" : "0.01",
             "HTTP::Tiny" : "0.044",
+            "IO::Socket::SSL" : "1.56",
             "Mojo::DOM58" : "1.00",
+            "Net::SSLeay" : "1.49",
             "Sort::Versions" : "0",
             "URI" : "0",
             "URI::Escape" : "0"
@@ -66,7 +68,7 @@
       },
       "x_IRC" : "irc://irc.perl.org/#native"
    },
-   "version" : "1.0",
+   "version" : "1.1",
    "x_alienfile" : {
       "generated_by" : "Alien::Build::MM version 2.26",
       "requires" : {
@@ -77,7 +79,9 @@
             "Config" : "0",
             "Env::ShellWords" : "0.01",
             "HTTP::Tiny" : "0.044",
+            "IO::Socket::SSL" : "1.56",
             "Mojo::DOM58" : "1.00",
+            "Net::SSLeay" : "1.49",
             "Sort::Versions" : "0",
             "URI" : "0",
             "URI::Escape" : "0"

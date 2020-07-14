@@ -10,7 +10,9 @@ build_requires:
   Config: '0'
   Env::ShellWords: '0.01'
   HTTP::Tiny: '0.044'
+  IO::Socket::SSL: '1.56'
   Mojo::DOM58: '1.00'
+  Net::SSLeay: '1.49'
   Sort::Versions: '0'
   URI: '0'
   URI::Escape: '0'
@@ -41,7 +43,7 @@ resources:
   homepage: https://metacpan.org/release/Alien-Gearman
   license: http://dev.perl.org/licenses/
   repository: https://github.com/thibaultduponchelle/Alien-Gearman.git
-version: '1.0'
+version: '1.1'
 x_alienfile:
   generated_by: 'Alien::Build::MM version 2.26'
   requires:
@@ -52,7 +54,9 @@ x_alienfile:
       Config: '0'
       Env::ShellWords: '0.01'
       HTTP::Tiny: '0.044'
+      IO::Socket::SSL: '1.56'
       Mojo::DOM58: '1.00'
+      Net::SSLeay: '1.49'
       Sort::Versions: '0'
       URI: '0'
       URI::Escape: '0'
