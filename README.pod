@@ -1,6 +1,6 @@
 =head1 NAME
 
-Alien::Gearman - Wrapper for installing libgearman v0.12
+Alien::Gearman - Wrapper for installing libgearman
 
 =head1 DESCRIPTION
 

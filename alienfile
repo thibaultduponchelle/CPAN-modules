@@ -5,10 +5,10 @@ plugin 'PkgConfig' => 'libgearman';
 share {
 
   plugin 'Build::SearchDep' => (
-    aliens => [qw( Alien::libuuid Alien::Libevent )],
+    aliens => [qw( Alien::libuuid Alien::OpenSSL Alien::gperf Alien::Libevent Alien::curl )],
   );
 
-  start_url 'https://launchpad.net/gearmand/+milestone/0.12';
+  start_url 'https://github.com/gearman/gearmand/releases';
   plugin 'Download' => (
     filter => qr/^gearmand-.*\.tar\.gz$/,
     version => qr/([0-9\.]+)/,
@@ -16,7 +16,10 @@ share {
 
   plugin 'Extract';
   
-  plugin 'Build::Autoconf';
-
+  build [
+    './configure --prefix=%{.install.prefix} --disable-shared',
+    '%{make} LIBS=-lstdc++',
+    '%{make} install',
+  ];
 };
 
