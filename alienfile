@@ -10,8 +10,6 @@ probe [
 
 share {
 
-  #plugin 'PkgConfig' => 'libboost';
-
   start_url 'https://www.boost.org/users/download/';
   plugin 'Download' => (
     filter => qr/^boost_.*\.tar\.gz$/,
