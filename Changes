@@ -1,5 +1,8 @@
 Revision history for Alien-Gearman
 
+2.1      Fri Jul 17 2020
+         - Use Alien::Boost
+
 2.0      Thu Jul 16 2020
          - Install latest libgearman
 

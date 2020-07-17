@@ -1,5 +1,5 @@
 {
-   "abstract" : "Find or build Gearman",
+   "abstract" : "Find or build libgearman",
    "author" : [
       "Thibault Duponchelle <thibault.duponchelle@gmail.com>"
    ],
@@ -22,6 +22,7 @@
    "prereqs" : {
       "build" : {
          "requires" : {
+            "Alien::Boost" : "0",
             "Alien::Build::MM" : "0.25",
             "Alien::Libevent" : "0",
             "Alien::OpenSSL" : "0",
@@ -71,11 +72,12 @@
       },
       "x_IRC" : "irc://irc.perl.org/#native"
    },
-   "version" : "2.0",
+   "version" : "2.1",
    "x_alienfile" : {
       "generated_by" : "Alien::Build::MM version 2.26",
       "requires" : {
          "share" : {
+            "Alien::Boost" : "0",
             "Alien::Libevent" : "0",
             "Alien::OpenSSL" : "0",
             "Alien::curl" : "0",

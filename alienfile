@@ -5,7 +5,7 @@ plugin 'PkgConfig' => 'libgearman';
 share {
 
   plugin 'Build::SearchDep' => (
-    aliens => [qw( Alien::libuuid Alien::OpenSSL Alien::gperf Alien::Libevent Alien::curl )],
+    aliens => [qw( Alien::libuuid Alien::OpenSSL Alien::gperf Alien::Libevent Alien::curl Alien::Boost )],
   );
 
   start_url 'https://github.com/gearman/gearmand/releases';
@@ -15,9 +15,12 @@ share {
   );
 
   plugin 'Extract';
-  
+
+  use Alien::Boost;
+  my $BOOSTDIR = Alien::Boost->dist_dir();
+
   build [
-    './configure --prefix=%{.install.prefix} --disable-shared',
+    "./configure --prefix=%{.install.prefix} --disable-shared --with-boost=$BOOSTDIR",
     '%{make} LIBS=-lstdc++',
     '%{make} install',
   ];
