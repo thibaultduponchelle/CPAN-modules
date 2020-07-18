@@ -16,4 +16,4 @@ jobs:
       - name: Create tarball
         run: perl Makefile.PL && make dist
       - name: Install alien
-        run: curl -L https://cpanmin.us | perl - --configure-timeout=1920 Alien-*.tar.gz -v
+        run: curl -L https://cpanmin.us | sudo perl - --configure-timeout=1920 Alien-*.tar.gz -v
