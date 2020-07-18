@@ -1,7 +1,6 @@
 name : Alien-CPP-cpanm
 
-on:
-  push: *
+on: push
 
 jobs:
   perl:
