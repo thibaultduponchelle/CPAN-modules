@@ -11,7 +11,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: perl -V
         run: perl -V
-      - name: perl -V
-        run: perl Makefile.PL && make dist
       - name: Install alien
         run: curl -L https://cpanmin.us | perl - --configure-timeout=1920 Alien-*.tar.gz -v
