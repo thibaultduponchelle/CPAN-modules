@@ -2,6 +2,10 @@ use alienfile;
 
 plugin 'PkgConfig' => 'libgearman';
 
+configure {
+  requires "Alien::Boost";
+};
+
 share {
 
   plugin 'Build::SearchDep' => (
@@ -16,7 +20,7 @@ share {
 
   plugin 'Extract';
 
-  use Alien::Boost;
+  require Alien::Boost;
   my $BOOSTDIR = Alien::Boost->dist_dir();
 
   build [
