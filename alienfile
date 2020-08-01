@@ -20,7 +20,7 @@ share {
 
   build [
     './bootstrap.sh',
-    './b2 install --prefix=%{.install.prefix} link=static',
+    './b2 install --prefix=%{.install.prefix} link=static runtime-link=static',
   ];
 
   gather sub {
