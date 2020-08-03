@@ -1,0 +1,7 @@
+Revision history for Alien-libpcre},
+ 
+1.2      2020-08-03 06:57:34 -0600
+         - Add cxxflags=-fPIC
+1.1      2020-07-18 06:57:34 -0600
+         - initial version link=static
+   
