@@ -1,5 +1,8 @@
 Revision history for Alien-Libevent
 
+2.6      Tue Aug 04 2020
+         - Add XS tests
+
 2.5      Thu Jul 16 2020
          - Search dep Alien::OpenSSL
          - Put README.pod in the MANIFEST.SKIP
