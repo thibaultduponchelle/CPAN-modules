@@ -1,6 +1,6 @@
 use Test2::V0 -no_srand => 1;
-use Test::Alien 1.90;
-use Test::Alien::Diag 1.90;
+use Test::Alien;
+use Test::Alien::Diag;
 use Alien::Libevent;
 
 alien_diag 'Alien::Libevent';
