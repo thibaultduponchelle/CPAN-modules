@@ -34,7 +34,7 @@ share {
   plugin 'Extract';
 
   build [
-    './bootstrap.sh',
+    './bootstrap.sh --without-libraries=python',
     './b2 install --prefix=%{.install.prefix} link=static cxxflags=-fPIC',
   ];
 
