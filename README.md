@@ -15,6 +15,7 @@ T2
 
 # Usual styling
 Some **BOLD** or alternate __BOLD__ text with some *italic* and alternate _italic_
+
 Some ***BOLD ITALIC*** or alternate ___BOLD ITALIC___
 
 # Quote
@@ -26,6 +27,7 @@ Some ***BOLD ITALIC*** or alternate ___BOLD ITALIC___
 > Quote with styling
 > - First
 > - Second
+>
 > Some **BOLD** 
 
 # Html embedded
@@ -140,14 +142,20 @@ ________________
 
 ## Links
 [MetaCPAN](https://metacpan.org) or with title [MetaCPAN](https://metacpan.org "MetaCPAN")
+
 <https://www.metacpan.org>
 
 ## Image with link
 [![](tux.png)](https://linuxfr.org/)
 
 ## Escape 
-\* \` 
+\* 
+
+\` 
+
 \-
+
 \+
+
 \#
 
