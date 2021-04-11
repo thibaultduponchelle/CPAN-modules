@@ -128,10 +128,10 @@ jobs:
 
 ## Images
 ### PNG
-![](tux.png)
+![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/tux.png)
 
 ### SVG
-![](tux.svg)
+![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/tux.svg)
 
 ## Rules
 ***
@@ -146,7 +146,7 @@ ________________
 <https://www.metacpan.org>
 
 ## Image with link
-[![](tux.png)](https://linuxfr.org/)
+[![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/tux.png)](https://linuxfr.org/)
 
 ## Escape 
 \* 
