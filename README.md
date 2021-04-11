@@ -30,41 +30,23 @@ Some ***BOLD ITALIC*** or alternate ___BOLD ITALIC___
 >
 > Some **BOLD** 
 
-# Html embedded
-Some <strong>BOLD</strong> text.
-
-A
-<br/>
-Sentence
-<br/>
-<br/>
-On
-<br/>
-<br/>
-<br/>
-Multiple
-<br/>
-<br/>
-<br/>
-<br/>
-Lines
-
-## Bullets (-)
+## Styling list in Markdown ([#2330](https://github.com/metacpan/metacpan-web/issues/2330))
+### Bullets (-)
 - First
 - Second
 - Third
 
-## Bullets (\*)
+### Bullets (\*)
 - Foo
 - Bar
 - Baz
 
-## Bullets (+)
+### Bullets (+)
 + Foo
 + Bar
 + Baz
 
-## Numbered list
+### Numbered list
 1. First
 2. Second
 3. Third
@@ -77,7 +59,7 @@ Lines
 ## Code
 Inlined `code` or inlined ``code with `backticks` inside``
 
-### Perl
+### Perl ([#2312](https://github.com/metacpan/metacpan-web/issues/2312))
 ```perl
 #!/usr/bin/env perl
 
@@ -99,32 +81,6 @@ print translate("You too can speak like a lolcat!") ."\n";
 	use Acme::LOLCAT;
  
 	print translate("You too can speak like a lolcat!") ."\n";
-
-### Bash
-```bash
-#!/bin/bash
-
-for i in `seq 1 10`
-do
-  echo -n "$i "
-done
-echo ""
-```
-
-### Yaml
-```yml
-name: check-syntax
-
-on: [push]
-
-jobs:
-  perl:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Check syntax 
-      run: for f in `find . -name "*.pm" -o -name "*.pl" -o -name "*.t"`; do perl -c $f; done
-```
 
 ## Images
 ### PNG
@@ -148,6 +104,10 @@ ________________
 ## Image with link
 [![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/tux.png)](https://linuxfr.org/)
 
+## Emoji
+🐪🐪🐪🐪🐪🐪🐪🐪🐪🐪🐪🐪
+🐺🐺🐺🐺🐺🐺🐺🐺🐺🐺🐺🐺
+
 ## Escape 
 \* 
 
@@ -159,3 +119,24 @@ ________________
 
 \#
 
+## Html embedded
+Some <strong>BOLD</strong> text.
+
+A
+<br/>
+Sentence
+<br/>
+<br/>
+On
+<br/>
+<br/>
+<br/>
+Multiple
+<br/>
+<br/>
+<br/>
+<br/>
+Lines
+
+## Huge image
+![huge](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/huge.png)
