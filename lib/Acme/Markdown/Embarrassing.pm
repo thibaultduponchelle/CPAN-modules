@@ -6,16 +6,16 @@ use warnings;
 
 =head1 NAME
 
-Acme::Markdown::Embarrassing - Testing the MetaCPAN Markdown converter
+Acme::Markdown::Embarrassing - Embarrassing the MetaCPAN Markdown converter
 
 =cut
 
-our $VERSION = '1.3';
+our $VERSION = '1.4';
 
 
 =head1 SYNOPSIS
 
-This is a toy module to test MetaCPAN Markdown 
+This is a toy module to embarrass MetaCPAN Markdown 
 
 =cut 
 
