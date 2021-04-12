@@ -1,24 +1,25 @@
 # Acme::Embarrasing
 
-# Titles
-## T2
-### T3
-#### T4
-##### T5
-###### T6
+# Title 1
+## Title 2
+### Title 3
+#### Title 4
+##### Title 5
+###### Title 6
 
-# Alternate titles
-T1
+Title 1
 ==
-T2
+Title 2
 --
 
-# Usual styling
+## Usual styling
 Some **BOLD** or alternate __BOLD__ text with some *italic* and alternate _italic_
 
 Some ***BOLD ITALIC*** or alternate ___BOLD ITALIC___
 
-# Quote
+Some ~~strikethrough~~
+
+## Quote
 > There Is More Than One Way To Do It
 
 > Top level
@@ -30,7 +31,7 @@ Some ***BOLD ITALIC*** or alternate ___BOLD ITALIC___
 >
 > Some **BOLD** 
 
-## Styling list in Markdown ([#2330](https://github.com/metacpan/metacpan-web/issues/2330))
+## Lists ([#2330](https://github.com/metacpan/metacpan-web/issues/2330))
 ### Bullets (-)
 - First
 - Second
@@ -89,6 +90,14 @@ print translate("You too can speak like a lolcat!") ."\n";
 ### SVG
 ![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/tux.svg)
 
+## Tables
+
+| Pos         | Club        | Points      | 
+|:------------|:-----------:|:-----------:| 
+|      1      | OM          | 12          |   
+|      2      | St Etienne  | 9           |    
+|      3      | OGC Nice    | 3           |
+
 ## Rules
 ***
 
@@ -105,8 +114,21 @@ ________________
 [![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/tux.png)](https://linuxfr.org/)
 
 ## Emoji
-🐪🐪🐪🐪🐪🐪🐪🐪🐪🐪🐪🐪
-🐺🐺🐺🐺🐺🐺🐺🐺🐺🐺🐺🐺
+🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪
+
+🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺
+
+🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪
+
+🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺
+
+🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪
+
+🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺
+
+🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪
+
+🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺
 
 ## Escape 
 \* 
