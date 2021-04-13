@@ -10,7 +10,7 @@ Acme::Markdown::Embarrassing - Embarrassing the MetaCPAN Markdown converter
 
 =cut
 
-our $VERSION = '1.9';
+our $VERSION = '2.0';
 
 
 =head1 SYNOPSIS
@@ -18,6 +18,7 @@ our $VERSION = '1.9';
 This is a toy module to embarrass MetaCPAN Markdown 
 
 =head1 IMAGE (RELATIVE test.png)
+
 =begin html
 
 <div style="display: flex">
@@ -29,6 +30,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 =end html
 
 =head1 IMAGE (RELATIVE ./test.png)
+
 =begin html
 
 <div style="display: flex">
@@ -40,6 +42,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 =end html
 
 =head1 IMAGE (RELATIVE ../../../test.png)
+
 =begin html
 
 <div style="display: flex">
@@ -51,6 +54,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 =end html
 
 =head1 IMAGE FROM SOURCE (ABSOLUTE)
+
 =begin html
 
 <div style="display: flex">
@@ -62,6 +66,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 =end html
 
 =head1 IMAGE FROM FASTAPI (ABSOLUTE)
+
 =begin html
 
 <div style="display: flex">
@@ -73,6 +78,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 =end html
 
 =head1 IMAGE FROM GITHUB (ABSOLUTE)
+
 =begin html
 
 <div style="display: flex">
