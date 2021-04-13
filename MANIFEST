@@ -8,5 +8,6 @@ t/manifest.t
 t/pod-coverage.t
 t/pod.t
 tux.svg
+test.png
 tux.png
 huge.png

@@ -1,5 +1,7 @@
 # Acme::Embarrasing
 
+![](test.png)
+
 # Title 1
 ## Title 2
 ### Title 3
