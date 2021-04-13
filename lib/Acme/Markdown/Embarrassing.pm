@@ -10,7 +10,7 @@ Acme::Markdown::Embarrassing - Embarrassing the MetaCPAN Markdown converter
 
 =cut
 
-our $VERSION = '2.3';
+our $VERSION = '2.4';
 
 
 =head1 SYNOPSIS
@@ -59,7 +59,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 <div style="display: flex">
 <div style="margin: 3px; flex: 1 1 50%">
-<img alt="Test" src="../../../test.png" style="max-width: 100%">
+<img alt="Test" src="/test.png" style="max-width: 100%">
 </div>
 </div>
 
