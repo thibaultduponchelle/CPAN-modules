@@ -1,11 +1,6 @@
+=head1 IMAGES.pod
 
-=head1 NAME
-
-Acme::Markdown::Embarrassing - Embarrassing the MetaCPAN Markdown converter
-
-=head1 SYNOPSIS
-
-This is a toy module to embarrass MetaCPAN Markdown 
+POD file placed at root of distribution
 
 =head1 IMAGE (RELATIVE test.png)
 

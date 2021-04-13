@@ -10,7 +10,7 @@ Acme::Markdown::Embarrassing - Embarrassing the MetaCPAN Markdown converter
 
 =cut
 
-our $VERSION = '2.2';
+our $VERSION = '2.3';
 
 
 =head1 SYNOPSIS
