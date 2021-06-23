@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/thibaultduponchelle/Acme-LSD.svg?branch=master)](https://travis-ci.org/thibaultduponchelle/Acme-LSD) [![Kritika Status](https://kritika.io/users/thibaultduponchelle/repos/thibaultduponchelle+Acme-LSD/heads/master/status.svg)](https://kritika.io/users/thibaultduponchelle/repos/thibaultduponchelle+Acme-LSD)
+[![Build Status](https://travis-ci.org/thibaultduponchelle/Acme-LSD.svg?branch=master)](https://travis-ci.org/thibaultduponchelle/Acme-LSD)
 # NAME
 
 Acme::LSD - A dumb module that colorize your prints
