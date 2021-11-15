@@ -10,14 +10,210 @@ Acme::Markdown::Embarrassing - Embarrassing the MetaCPAN Markdown converter
 
 =cut
 
-our $VERSION = '2.4';
+our $VERSION = '2.5';
 
 
 =head1 SYNOPSIS
 
 This is a toy module to embarrass MetaCPAN Markdown 
 
-=head1 IMAGE (RELATIVE test.png)
+=head1 MARKDOWN
+
+See also L<https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-2.5/source/README.md> 
+
+=format markdown
+
+# Acme::Markdown::Embarrasing
+
+#### Include relative image `![](test.png)`
+![](test.png)
+
+#### Include relative image `![](./test.png)`
+![](./test.png)
+
+#### Include absolute internal non versioned image `![](https://metacpan.org/source/CONTRA/Acme-Markdown-Embarrassing/test.png)`
+![](https://metacpan.org/source/CONTRA/Acme-Markdown-Embarrassing/test.png)
+
+#### Include absolute internal image `![](https://metacpan.org/source/CONTRA/Acme-Markdown-Embarrassing-1.6/test.png)`
+![](https://metacpan.org/source/CONTRA/Acme-Markdown-Embarrassing-1.6/test.png)
+
+#### Include absolute fastapi image `![](https://fastapi.metacpan.org/source/CONTRA/Acme-Markdown-Embarrassing-1.6/test.png)`
+![](https://fastapi.metacpan.org/source/CONTRA/Acme-Markdown-Embarrassing-1.6/test.png)
+
+#### Include absolute external image `![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/test.png)`
+![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/test.png)
+
+
+# Title 1
+## Title 2
+### Title 3
+#### Title 4
+##### Title 5
+###### Title 6
+
+Title 1
+==
+Title 2
+--
+
+## Usual styling
+Some **BOLD** or alternate __BOLD__ text with some *italic* and alternate _italic_
+
+Some ***BOLD ITALIC*** or alternate ___BOLD ITALIC___
+
+Some ~~strikethrough~~
+
+## Quote
+> There Is More Than One Way To Do It
+
+> Top level
+>> Nested
+
+> Quote with styling
+> - First
+> - Second
+>
+> Some **BOLD** 
+
+## Lists ([#2330](https://github.com/metacpan/metacpan-web/issues/2330))
+### Bullets (-)
+- First
+- Second
+- Third
+
+### Bullets (\*)
+- Foo
+- Bar
+- Baz
+
+### Bullets (+)
++ Foo
++ Bar
++ Baz
+
+### Numbered list
+1. First
+2. Second
+3. Third
+
+1) First
+2) Second
+3) Third
+
+
+## Code
+Inlined `code` or inlined ``code with `backticks` inside``
+
+### Perl ([#2312](https://github.com/metacpan/metacpan-web/issues/2312))
+```perl
+#!/usr/bin/env perl
+
+use Acme::LOLCAT;
+ 
+print translate("You too can speak like a lolcat!") ."\n";
+```
+
+### Indented with spaces
+    #!/usr/bin/env perl
+
+    use Acme::LOLCAT;
+ 
+    print translate("You too can speak like a lolcat!") ."\n";
+
+### Indented with tab
+	#!/usr/bin/env perl
+
+	use Acme::LOLCAT;
+ 
+	print translate("You too can speak like a lolcat!") ."\n";
+
+## Images
+### PNG
+![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/tux.png)
+
+### SVG
+![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/tux.svg)
+
+## Tables
+
+| Pos         | Club        | Points      | 
+|:------------|:-----------:|:-----------:| 
+|      1      | OM          | 12          |   
+|      2      | St Etienne  | 9           |    
+|      3      | OGC Nice    | 3           |
+
+## Rules
+***
+
+---
+
+________________
+
+## Links
+[MetaCPAN](https://metacpan.org) or with title [MetaCPAN](https://metacpan.org "MetaCPAN")
+
+<https://www.metacpan.org>
+
+## Image with link
+[![](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/tux.png)](https://linuxfr.org/)
+
+## Emoji
+🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪
+
+🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺
+
+🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪
+
+🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺
+
+🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪
+
+🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺
+
+🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪 🐪
+
+🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺 🐺
+
+## Escape 
+\* 
+
+\` 
+
+\-
+
+\+
+
+\#
+
+## Html embedded
+Some <strong>BOLD</strong> text.
+
+A
+<br/>
+Sentence
+<br/>
+<br/>
+On
+<br/>
+<br/>
+<br/>
+Multiple
+<br/>
+<br/>
+<br/>
+<br/>
+Lines
+
+## Huge image
+![huge](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/huge.png)
+
+
+=cut
+
+
+=head1 POD + HTML + IMAGES
+
+=head2 IMAGE (RELATIVE test.png)
 
 =begin html
 
@@ -29,7 +225,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 =end html
 
-=head1 IMAGE (RELATIVE ./test.png)
+=head2 IMAGE (RELATIVE ./test.png)
 
 =begin html
 
@@ -41,7 +237,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 =end html
 
-=head1 IMAGE (RELATIVE ../../../test.png)
+=head2 IMAGE (RELATIVE ../../../test.png)
 
 =begin html
 
@@ -53,7 +249,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 =end html
 
-=head1 IMAGE (ROOT RELATIVE /test.png)
+=head2 IMAGE (ROOT RELATIVE /test.png)
 
 =begin html
 
@@ -65,7 +261,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 =end html
 
-=head1 IMAGE FROM SOURCE (ABSOLUTE)
+=head2 IMAGE FROM SOURCE (ABSOLUTE)
 
 =begin html
 
@@ -77,7 +273,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 =end html
 
-=head1 IMAGE FROM FASTAPI (ABSOLUTE)
+=head2 IMAGE FROM FASTAPI (ABSOLUTE)
 
 =begin html
 
@@ -89,7 +285,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 =end html
 
-=head1 IMAGE FROM GITHUB (ABSOLUTE)
+=head2 IMAGE FROM GITHUB (ABSOLUTE)
 
 =begin html
 
