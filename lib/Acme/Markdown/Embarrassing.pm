@@ -4,23 +4,21 @@ use 5.006;
 use strict;
 use warnings;
 
+our $VERSION = '2.7';
+
 =format markdown
 
-=head1 NAME
+# NAME
 
 Acme::Markdown::Embarrassing - Embarrassing the MetaCPAN Markdown converter
 
-=cut
-
-our $VERSION = '2.6';
-
-=head1 SYNOPSIS
+# SYNOPSIS
 
 This is a toy module to embarrass MetaCPAN Markdown 
 
-=head1 MARKDOWN
+# MARKDOWN
 
-See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-2.5/source/README.md)
+See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-2.7/source/README.md)
 
 # Acme::Markdown::Embarrasing
 
