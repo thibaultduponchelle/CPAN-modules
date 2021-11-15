@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '2.7';
+our $VERSION = '2.8';
 
 =format markdown
 
@@ -18,7 +18,8 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 # MARKDOWN
 
-See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-2.7/source/README.md)
+See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-2.8/source/README.md)
+See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-2.8/source/MarkdownTest.md)
 
 # Acme::Markdown::Embarrasing
 
