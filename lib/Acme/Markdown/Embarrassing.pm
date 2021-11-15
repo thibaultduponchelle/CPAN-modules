@@ -4,14 +4,15 @@ use 5.006;
 use strict;
 use warnings;
 
+=format markdown
+
 =head1 NAME
 
 Acme::Markdown::Embarrassing - Embarrassing the MetaCPAN Markdown converter
 
 =cut
 
-our $VERSION = '2.5';
-
+our $VERSION = '2.6';
 
 =head1 SYNOPSIS
 
@@ -19,9 +20,7 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 =head1 MARKDOWN
 
-See also L<https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-2.5/source/README.md> 
-
-=format markdown
+See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-2.5/source/README.md)
 
 # Acme::Markdown::Embarrasing
 
@@ -208,14 +207,9 @@ Lines
 ![huge](https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/huge.png)
 
 
-=cut
+# Embed HTML (and IMAGES)
 
-
-=head1 POD + HTML + IMAGES
-
-=head2 IMAGE (RELATIVE test.png)
-
-=begin html
+## IMAGE (RELATIVE test.png)
 
 <div style="display: flex">
 <div style="margin: 3px; flex: 1 1 50%">
@@ -223,11 +217,7 @@ Lines
 </div>
 </div>
 
-=end html
-
-=head2 IMAGE (RELATIVE ./test.png)
-
-=begin html
+## IMAGE (RELATIVE ./test.png)
 
 <div style="display: flex">
 <div style="margin: 3px; flex: 1 1 50%">
@@ -235,11 +225,7 @@ Lines
 </div>
 </div>
 
-=end html
-
-=head2 IMAGE (RELATIVE ../../../test.png)
-
-=begin html
+## IMAGE (RELATIVE ../../../test.png)
 
 <div style="display: flex">
 <div style="margin: 3px; flex: 1 1 50%">
@@ -247,11 +233,7 @@ Lines
 </div>
 </div>
 
-=end html
-
-=head2 IMAGE (ROOT RELATIVE /test.png)
-
-=begin html
+## IMAGE (ROOT RELATIVE /test.png)
 
 <div style="display: flex">
 <div style="margin: 3px; flex: 1 1 50%">
@@ -259,11 +241,7 @@ Lines
 </div>
 </div>
 
-=end html
-
-=head2 IMAGE FROM SOURCE (ABSOLUTE)
-
-=begin html
+## IMAGE FROM SOURCE (ABSOLUTE)
 
 <div style="display: flex">
 <div style="margin: 3px; flex: 1 1 50%">
@@ -271,11 +249,7 @@ Lines
 </div>
 </div>
 
-=end html
-
-=head2 IMAGE FROM FASTAPI (ABSOLUTE)
-
-=begin html
+## IMAGE FROM FASTAPI (ABSOLUTE)
 
 <div style="display: flex">
 <div style="margin: 3px; flex: 1 1 50%">
@@ -283,19 +257,13 @@ Lines
 </div>
 </div>
 
-=end html
-
-=head2 IMAGE FROM GITHUB (ABSOLUTE)
-
-=begin html
+## IMAGE FROM GITHUB (ABSOLUTE)
 
 <div style="display: flex">
 <div style="margin: 3px; flex: 1 1 50%">
 <img alt="Test" src="https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/test.png" style="max-width: 100%">
 </div>
 </div>
-
-=end html
 
 =cut 
 
