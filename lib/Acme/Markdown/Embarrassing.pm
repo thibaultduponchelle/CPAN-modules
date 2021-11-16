@@ -4,9 +4,9 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '2.9';
+our $VERSION = '3.0';
 
-=format markdown
+=begin markdown
 
 # NAME
 
@@ -18,8 +18,8 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 # MARKDOWN
 
-See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-2.9/source/README.md)
-See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-2.9/source/MarkdownTest.md)
+See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-3.0/source/README.md)
+See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-3.0/source/MarkdownTest.md)
 
 # Acme::Markdown::Embarrasing
 
@@ -263,7 +263,6 @@ Lines
 <img alt="Test" src="https://raw.githubusercontent.com/thibaultduponchelle/Acme-Markdown-Embarrassing/master/test.png" style="max-width: 100%">
 </div>
 </div>
-
-=cut 
+=end markdown
 
 1; # End of Acme::Markdown::Embarrassing
