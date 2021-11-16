@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '3.1';
+our $VERSION = '3.2';
 
 =pod
 
@@ -22,8 +22,9 @@ This is a toy module to embarrass MetaCPAN Markdown
 
 =head1 SEE ALSO
 
-See also L<https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-3.1/source/README.md>
-See also L<https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-3.1/source/MarkdownTest.md>
+See also L<https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-3.2/source/README.md>
+
+See also L<https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-3.2/source/MarkdownTest.md>
 
 =head1 MARKDOWN
 
