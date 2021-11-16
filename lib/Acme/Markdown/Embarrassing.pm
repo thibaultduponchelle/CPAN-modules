@@ -4,24 +4,32 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '3.0';
+our $VERSION = '3.1';
 
-=begin markdown
+=pod
 
-# NAME
+=encoding UTF-8
+
+=head1 Acme::Markdown::Embarrasing
+
+=head1 NAME
 
 Acme::Markdown::Embarrassing - Embarrassing the MetaCPAN Markdown converter
 
-# SYNOPSIS
+=head1 SYNOPYS
 
 This is a toy module to embarrass MetaCPAN Markdown 
 
-# MARKDOWN
+=head1 SEE ALSO
 
-See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-3.0/source/README.md)
-See also [README.md](https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-3.0/source/MarkdownTest.md)
+See also L<https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-3.1/source/README.md>
+See also L<https://metacpan.org/release/CONTRA/Acme-Markdown-Embarrassing-3.1/source/MarkdownTest.md>
 
-# Acme::Markdown::Embarrasing
+=head1 MARKDOWN
+
+=begin markdown
+
+## IMAGES
 
 #### Include relative image `![](test.png)`
 ![](test.png)
@@ -264,5 +272,7 @@ Lines
 </div>
 </div>
 =end markdown
+
+=cut
 
 1; # End of Acme::Markdown::Embarrassing
