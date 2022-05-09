@@ -196,9 +196,6 @@ sub print_report {
     binmode( STDOUT, ':encoding(UTF-8)' );
     foreach my $repository (@repos) {
         my $report = $repository->report;
-        use Data::Printer;
-
-        #p $report;
         if ( $report->{nb_commits} > 1 ) {
 
             # No doubt, not empty because more than just a dummy commit
@@ -211,15 +208,17 @@ sub print_report {
             print $repository->user . "/" . $repository->name . "\n";
         }
         else {
-# Possibly "almost" empty if there is one commit with only a boilerplate file (advised by GitHub UI)
+            my $is_empty = 1;
+            # Possibly "almost" empty if there is one commit with only a boilerplate file (advised by GitHub UI)
             foreach my $file ( @{ $report->{files} } ) {
-                return
-                  unless (
-                    grep /$file/,
-                    ( "README.md", ".gitignore", "LICENSE", "CONTRIBUTING.md" )
-                  );
+                if ( ! grep /$file/, ( "README.md", ".gitignore", "LICENSE", "CONTRIBUTING.md" )) {
+                    # Not empty
+		    $is_empty = 0;
+                }
             }
-            print $repository->user . "/" . $repository->name . "\n";
+            if ($is_empty) { 
+                print $repository->user . "/" . $repository->name . "\n";
+            }
         }
 
     }
@@ -232,3 +231,13 @@ sub print_report {
 __END__
 
 # ABSTRACT: Scan for empty repositories
+
+=pod
+
+=head1 SYNOPSIS
+
+=head1 CAVEATS
+
+Not looking at branches.
+
+=cut
