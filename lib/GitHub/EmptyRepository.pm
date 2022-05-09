@@ -156,7 +156,6 @@ sub _build_report {
             $result->auto_pagination(1);
 
             while ( my $row = $result->next ) {
-                print "Found: " . $row->{full_name} . "\n";
                 push @urls, $row->{full_name};
             }
         }
