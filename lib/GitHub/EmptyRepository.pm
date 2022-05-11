@@ -104,6 +104,7 @@ has _percent_formatter => (
 
 sub _build_github_client {
     my $self = shift;
+
     return Pithub::Repos::Commits->new(
         $self->cache_requests
           || $self->debug_useragent ? ( ua => $self->_mech ) : (),
@@ -150,7 +151,10 @@ sub _build_report {
     # Where will go urls found from --org
     if ( $self->org ) {
         foreach my $org ( @{ $self->org } ) {
-            my $repos  = Pithub::Repos->new;
+            my $repos  = Pithub::Repos->new(
+                $self->github_user  ? ( user  => $self->github_user )  : (),
+                $self->github_token ? ( token => $self->github_token ) : (),
+	    );
             my $result = $repos->list( org => $org );
 
             $result->auto_pagination(1);
@@ -168,6 +172,7 @@ sub _build_report {
     @urls = uniq @urls;
 
     foreach my $url (@urls) {
+	print "Processing $url...\n";
         my $repo = GitHub::EmptyRepository::Repository->new(
             github_client => $self->_github_client,
             url           => $url,
@@ -193,8 +198,11 @@ sub print_report {
 
     return unless @repos;
 
+    my $n = 0;
     binmode( STDOUT, ':encoding(UTF-8)' );
     foreach my $repository (@repos) {
+	$n++;
+	
         my $report = $repository->report;
         if ( $report->{nb_commits} > 1 ) {
 
@@ -222,6 +230,8 @@ sub print_report {
         }
 
     }
+
+    print "($n)";
 
     return;
 }

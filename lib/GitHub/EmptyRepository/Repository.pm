@@ -100,6 +100,35 @@ sub _get_commits {
     }
     return \@commits;
 }
+
+sub _get_branches {
+    my $self = shift;
+
+    my $result = $self->github_client->list(
+        user   => $self->user,
+        repo   => $self->name,
+        params => { per_page => 2, state => 'all' },
+    );
+
+    $result->auto_pagination(0);
+
+    my @commits;
+
+    return \@commits unless $result->response->is_success;
+
+    while ( my $row = $result->next ) {
+        my $commit = GitHub::EmptyRepository::Repository::Commit->new(
+            github_client => $self->github_client,
+            repo          => $self->name,
+            user          => $self->user,
+            sha           => $row->{sha}
+        );
+
+        push @commits, $commit;
+    }
+    return \@commits;
+}
+#
 ## use critic
 
 sub _parse_github_url {
