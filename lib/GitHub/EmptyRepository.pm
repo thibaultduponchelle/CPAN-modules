@@ -70,6 +70,12 @@ option org => (
     documentation => 'An organization.  You can pass multiple url args.',
 );
 
+option terse => (
+    is            => 'ro',
+    required      => 0,
+    documentation => 'Make the report very brief',
+);
+
 has _report => (
     is          => 'ro',
     isa         => HashRef,
@@ -94,13 +100,7 @@ has _mech => (
     builder => '_build_mech',
 );
 
-has _percent_formatter => (
-    is      => 'ro',
-    isa     => InstanceOf ['CLDR::Number::Format::Percent'],
-    handles => { '_format_percent' => 'format' },
-    lazy    => 1,
-    default => sub { CLDR::Number::Format::Percent->new( locale => 'en' ) },
-);
+
 
 sub _build_github_client {
     my $self = shift;
@@ -172,7 +172,6 @@ sub _build_report {
     @urls = uniq @urls;
 
     foreach my $url (@urls) {
-	print "Processing $url...\n";
         my $repo = GitHub::EmptyRepository::Repository->new(
             github_client => $self->_github_client,
             url           => $url,
@@ -183,14 +182,6 @@ sub _build_report {
     return \%report;
 }
 
-# workaround for init_arg being ignored
-# https://rt.cpan.org/Ticket/Display.html?id=97849
-
-sub report {
-    my $self = shift;
-    return $self->_report;
-}
-
 sub print_report {
     my $self = shift;
 
@@ -198,40 +189,37 @@ sub print_report {
 
     return unless @repos;
 
-    my $n = 0;
-    binmode( STDOUT, ':encoding(UTF-8)' );
-    foreach my $repository (@repos) {
-	$n++;
-	
-        my $report = $repository->report;
-        if ( $report->{nb_commits} > 1 ) {
+    my $table = Text::SimpleTable::AutoWidth->new;
+    my @cols  = ( 'user',   'repo',  'empty?', 'commits' );
+    $table->captions( \@cols );
 
+    foreach my $repository (@repos) {
+        my $report = $repository->report;
+        my $is_empty = 1;
+        if ( $report->{nb_commits} > 1 ) {
             # No doubt, not empty because more than just a dummy commit
             # It can be a lot of dummy commits xD but that's another story
-            next;
-        }
-        if ( $report->{nb_commits} == 0 ) {
-
+    	    $is_empty = 0;
+        } elsif ( $report->{nb_commits} == 0 ) {
+            $is_empty = 1;
             # No doubt, empty
-            print $repository->user . "/" . $repository->name . "\n";
-        }
-        else {
-            my $is_empty = 1;
+        } else {
             # Possibly "almost" empty if there is one commit with only a boilerplate file (advised by GitHub UI)
             foreach my $file ( @{ $report->{files} } ) {
                 if ( ! grep /$file/, ( "README.md", ".gitignore", "LICENSE", "CONTRIBUTING.md" )) {
                     # Not empty
-		    $is_empty = 0;
+        	    $is_empty = 0;
                 }
             }
-            if ($is_empty) { 
-                print $repository->user . "/" . $repository->name . "\n";
-            }
         }
-
+        if ($is_empty and $self->terse) { 
+            print $repository->user . "/" . $repository->name . "\n";
+        }
+        $table->row( $repository->user, $repository->name, $is_empty ? "YES": "NO", $report->{nb_commits} > 1 ? "> 1" : $report->{nb_commits});
     }
 
-    print "($n)";
+    if (! $self->terse) { print $table->draw };
+
 
     return;
 }
