@@ -54,7 +54,7 @@ this won't be an issue.  See
 L<https://help.github.com/articles/creating-an-access-token-for-command-line-use>
 for more information.
 
-=head2 cache-requests
+=head2 cache_requests
 
 Enable this if you're hitting API limits or need to speed up response time.
 
