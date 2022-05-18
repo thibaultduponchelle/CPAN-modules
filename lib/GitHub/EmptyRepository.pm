@@ -59,7 +59,7 @@ option url => (
     format        => 's@',
     required      => 0,
     documentation =>
-'Full Github repo url or shorthand of username/repository.  You can pass multiple url args.',
+        'Full Github repo url or shorthand of username/repository.  You can pass multiple url args.',
 );
 
 option org => (
@@ -119,7 +119,7 @@ sub _build_c_github_client {
 
     return Pithub::Repos::Commits->new(
         $self->cache_requests
-          || $self->debug_useragent ? ( ua => $self->_mech ) : (),
+            || $self->debug_useragent ? ( ua => $self->_mech ) : (),
         $self->github_user  ? ( user  => $self->github_user )  : (),
         $self->github_token ? ( token => $self->github_token ) : (),
     );
@@ -130,7 +130,7 @@ sub _build_r_github_client {
 
     return Pithub::Repos->new(
         $self->cache_requests
-          || $self->debug_useragent ? ( ua => $self->_mech ) : (),
+            || $self->debug_useragent ? ( ua => $self->_mech ) : (),
         $self->github_user  ? ( user  => $self->github_user )  : (),
         $self->github_token ? ( token => $self->github_token ) : (),
     );
@@ -141,7 +141,7 @@ sub _build_p_github_client {
 
     return Pithub::PullRequests->new(
         $self->cache_requests
-          || $self->debug_useragent ? ( ua => $self->_mech ) : (),
+            || $self->debug_useragent ? ( ua => $self->_mech ) : (),
         $self->github_user  ? ( user  => $self->github_user )  : (),
         $self->github_token ? ( token => $self->github_token ) : (),
     );
@@ -226,8 +226,8 @@ sub print_report {
     return unless @repos;
 
     my $table = Text::SimpleTable::AutoWidth->new;
-    my @cols =
-      ( 'user', 'repo', 'empty?', 'commits', 'branches', 'pullrequests' );
+    my @cols
+        = ( 'user', 'repo', 'empty?', 'commits', 'branches', 'pullrequests' );
     $table->captions( \@cols );
 
     foreach my $repository (@repos) {
@@ -260,8 +260,11 @@ sub print_report {
                 # Check filename against list of "whitelisted" filenames
                 if (
                     !grep /$file/,
-                    ( "README.md", ".gitignore", "LICENSE", "CONTRIBUTING.md" )
-                  )
+                    (
+                        "README.md", ".gitignore",
+                        "LICENSE",   "CONTRIBUTING.md"
+                    )
+                    )
                 {
                     # Not empty
                     $is_empty = 0;
