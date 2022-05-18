@@ -9,9 +9,21 @@ use MooX::StrictConstructor;
 use Types::Standard qw( HashRef ArrayRef Bool InstanceOf Str );
 use URI ();
 
-has github_client => (
+has c_github_client => (
     is       => 'ro',
     isa      => InstanceOf ['Pithub::Repos::Commits'],
+    required => 1,
+);
+
+has r_github_client => (
+    is       => 'ro',
+    isa      => InstanceOf ['Pithub::Repos'],
+    required => 1,
+);
+
+has p_github_client => (
+    is       => 'ro',
+    isa      => InstanceOf ['Pithub::PullRequests'],
     required => 1,
 );
 
@@ -57,10 +69,14 @@ sub _build_report {
     my $self = shift;
 
     my $commits = $self->_get_commits;
+    my $branches = $self->_get_branches;
+    my $pullrequests = $self->_get_pullrequests;
 
-    my $total = $commits ? scalar @{$commits} : 0;
+    my $total_commits = $commits ? scalar @{$commits} : 0;
+    my $total_branches = $branches ? scalar @{$branches} : 0;
+    my $total_pullrequests = $pullrequests ? scalar @{$pullrequests} : 0;
 
-    my %summary = ( nb_commits => $total );
+    my %summary = ( nb_commits => $total_commits, nb_branches => $total_branches, nb_pullrequests => $total_pullrequests );
     $summary{files} = [];
 
     foreach my $commit ( @{$commits} ) {
@@ -76,7 +92,7 @@ sub _build_report {
 sub _get_commits {
     my $self = shift;
 
-    my $result = $self->github_client->list(
+    my $result = $self->c_github_client->list(
         user   => $self->user,
         repo   => $self->name,
         params => { per_page => 2, state => 'all' },
@@ -90,7 +106,7 @@ sub _get_commits {
 
     while ( my $row = $result->next ) {
         my $commit = GitHub::EmptyRepository::Repository::Commit->new(
-            github_client => $self->github_client,
+            github_client => $self->c_github_client,
             repo          => $self->name,
             user          => $self->user,
             sha           => $row->{sha}
@@ -104,7 +120,7 @@ sub _get_commits {
 sub _get_branches {
     my $self = shift;
 
-    my $result = $self->github_client->list(
+    my $result = $self->r_github_client->branches(
         user   => $self->user,
         repo   => $self->name,
         params => { per_page => 2, state => 'all' },
@@ -112,22 +128,41 @@ sub _get_branches {
 
     $result->auto_pagination(0);
 
-    my @commits;
+    my @branches;
 
-    return \@commits unless $result->response->is_success;
+    return \@branches unless $result->response->is_success;
 
     while ( my $row = $result->next ) {
-        my $commit = GitHub::EmptyRepository::Repository::Commit->new(
-            github_client => $self->github_client,
-            repo          => $self->name,
-            user          => $self->user,
-            sha           => $row->{sha}
-        );
-
-        push @commits, $commit;
+        my $branch = $row->{name};
+        push @branches, $branch;
     }
-    return \@commits;
+    return \@branches;
 }
+
+sub _get_pullrequests {
+    my $self = shift;
+
+    my $result = $self->p_github_client->list(
+        user   => $self->user,
+        repo   => $self->name,
+        params => { per_page => 2, state => 'all' },
+    );
+
+    $result->auto_pagination(0);
+
+    my @pullrequests;
+
+    return \@pullrequests unless $result->response->is_success;
+
+    while ( my $row = $result->next ) {
+        my $pullrequest = $row->{number};
+        push @pullrequests, $pullrequest;
+    }
+    return \@pullrequests;
+}
+
+
+
 #
 ## use critic
 

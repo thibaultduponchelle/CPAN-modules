@@ -86,11 +86,25 @@ has _report => (
     builder     => '_build_report',
 );
 
-has _github_client => (
+has _c_github_client => (
     is      => 'ro',
     isa     => InstanceOf ['Pithub::Repos::Commits'],
     lazy    => 1,
-    builder => '_build_github_client'
+    builder => '_build_c_github_client'
+);
+
+has _r_github_client => (
+    is      => 'ro',
+    isa     => InstanceOf ['Pithub::Repos'],
+    lazy    => 1,
+    builder => '_build_r_github_client'
+);
+
+has _p_github_client => (
+    is      => 'ro',
+    isa     => InstanceOf ['Pithub::PullRequests'],
+    lazy    => 1,
+    builder => '_build_p_github_client'
 );
 
 has _mech => (
@@ -102,10 +116,32 @@ has _mech => (
 
 
 
-sub _build_github_client {
+sub _build_c_github_client {
     my $self = shift;
 
     return Pithub::Repos::Commits->new(
+        $self->cache_requests
+          || $self->debug_useragent ? ( ua => $self->_mech ) : (),
+        $self->github_user  ? ( user  => $self->github_user )  : (),
+        $self->github_token ? ( token => $self->github_token ) : (),
+    );
+}
+
+sub _build_r_github_client {
+    my $self = shift;
+
+    return Pithub::Repos->new(
+        $self->cache_requests
+          || $self->debug_useragent ? ( ua => $self->_mech ) : (),
+        $self->github_user  ? ( user  => $self->github_user )  : (),
+        $self->github_token ? ( token => $self->github_token ) : (),
+    );
+}
+
+sub _build_p_github_client {
+    my $self = shift;
+
+    return Pithub::PullRequests->new(
         $self->cache_requests
           || $self->debug_useragent ? ( ua => $self->_mech ) : (),
         $self->github_user  ? ( user  => $self->github_user )  : (),
@@ -173,7 +209,9 @@ sub _build_report {
 
     foreach my $url (@urls) {
         my $repo = GitHub::EmptyRepository::Repository->new(
-            github_client => $self->_github_client,
+            c_github_client => $self->_c_github_client,
+            r_github_client => $self->_r_github_client,
+            p_github_client => $self->_p_github_client,
             url           => $url,
         );
         $report{$url} = $repo;
@@ -190,24 +228,28 @@ sub print_report {
     return unless @repos;
 
     my $table = Text::SimpleTable::AutoWidth->new;
-    my @cols  = ( 'user',   'repo',  'empty?', 'commits' );
+    my @cols  = ( 'user',   'repo',  'empty?', 'commits', 'branches', 'pullrequests' );
     $table->captions( \@cols );
 
     foreach my $repository (@repos) {
         my $report = $repository->report;
         # TODO:
-        # 1. Count branches
-	# 2. Count pull requests
-        # 3. Check if repository is old
+	# 1. Count pull requests
+        # 2. Check if repository is old
         my $is_empty = 1;
+	if ( $report->{nb_branches} > 1) {
+            # No doubt, not empty because multiple branches
+    	    $is_empty = 0;
+        }
+        if ( $report->{nb_pullrequests} > 0) {
+            # No doubt, not empty because at least one pull request
+    	    $is_empty = 0;
+        }
         if ( $report->{nb_commits} > 1 ) {
             # No doubt, not empty because more than just a dummy commit
             # It can be a lot of dummy commits xD but that's another story
     	    $is_empty = 0;
-        } elsif ( $report->{nb_commits} == 0 ) {
-            # No doubt, empty
-            $is_empty = 1;
-        } else {
+        } elsif ( $is_empty and $report->{nb_commits} == 1 ) {
             # Possibly "almost" empty if there is one commit with only a boilerplate file (advised by GitHub UI)
             foreach my $file ( @{ $report->{files} } ) {
                 # Check filename against list of "whitelisted" filenames
@@ -220,7 +262,13 @@ sub print_report {
         if ($is_empty and $self->terse) { 
             print $repository->user . "/" . $repository->name . "\n";
         } else {
-            $table->row( $repository->user, $repository->name, $is_empty ? "YES": "NO", $report->{nb_commits} > 1 ? "2+" : $report->{nb_commits});
+            $table->row( $repository->user, 
+                         $repository->name, 
+                         $is_empty ? "YES": "NO", 
+                         $report->{nb_commits} > 1 ? "2+" : $report->{nb_commits}, 
+                         $report->{nb_branches} > 1 ? "2+" : $report->{nb_branches},
+                         $report->{nb_pullrequests} > 1 ? "2+" : $report->{nb_pullrequests},
+                       );
 	}
     }
 
@@ -239,9 +287,5 @@ __END__
 =pod
 
 =head1 SYNOPSIS
-
-=head1 CAVEATS
-
-Not looking at branches.
 
 =cut

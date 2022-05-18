@@ -8,10 +8,6 @@ version 0.00001
 
 # SYNOPSIS
 
-# CAVEATS
-
-Not looking at branches.
-
 # AUTHORS
 
 - Thibault Duponchelle <thibault.duponchelle@gmail.com>
