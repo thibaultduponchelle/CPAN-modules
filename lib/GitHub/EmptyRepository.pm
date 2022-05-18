@@ -234,8 +234,7 @@ sub print_report {
     foreach my $repository (@repos) {
         my $report = $repository->report;
         # TODO:
-	# 1. Count pull requests
-        # 2. Check if repository is old
+        # Check if repository is old?
         my $is_empty = 1;
 	if ( $report->{nb_branches} > 1) {
             # No doubt, not empty because multiple branches
