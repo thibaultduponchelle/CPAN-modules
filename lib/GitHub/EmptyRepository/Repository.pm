@@ -68,15 +68,19 @@ has user => (
 sub _build_report {
     my $self = shift;
 
-    my $commits = $self->_get_commits;
-    my $branches = $self->_get_branches;
+    my $commits      = $self->_get_commits;
+    my $branches     = $self->_get_branches;
     my $pullrequests = $self->_get_pullrequests;
 
-    my $total_commits = $commits ? scalar @{$commits} : 0;
-    my $total_branches = $branches ? scalar @{$branches} : 0;
+    my $total_commits      = $commits      ? scalar @{$commits}      : 0;
+    my $total_branches     = $branches     ? scalar @{$branches}     : 0;
     my $total_pullrequests = $pullrequests ? scalar @{$pullrequests} : 0;
 
-    my %summary = ( nb_commits => $total_commits, nb_branches => $total_branches, nb_pullrequests => $total_pullrequests );
+    my %summary = (
+        nb_commits      => $total_commits,
+        nb_branches     => $total_branches,
+        nb_pullrequests => $total_pullrequests
+    );
     $summary{files} = [];
 
     foreach my $commit ( @{$commits} ) {
@@ -160,8 +164,6 @@ sub _get_pullrequests {
     }
     return \@pullrequests;
 }
-
-
 
 #
 ## use critic

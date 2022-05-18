@@ -114,8 +114,6 @@ has _mech => (
     builder => '_build_mech',
 );
 
-
-
 sub _build_c_github_client {
     my $self = shift;
 
@@ -187,10 +185,10 @@ sub _build_report {
     # Where will go urls found from --org
     if ( $self->org ) {
         foreach my $org ( @{ $self->org } ) {
-            my $repos  = Pithub::Repos->new(
+            my $repos = Pithub::Repos->new(
                 $self->github_user  ? ( user  => $self->github_user )  : (),
                 $self->github_token ? ( token => $self->github_token ) : (),
-	    );
+            );
             my $result = $repos->list( org => $org );
 
             $result->auto_pagination(1);
@@ -212,7 +210,7 @@ sub _build_report {
             c_github_client => $self->_c_github_client,
             r_github_client => $self->_r_github_client,
             p_github_client => $self->_p_github_client,
-            url           => $url,
+            url             => $url,
         );
         $report{$url} = $repo;
     }
@@ -228,51 +226,66 @@ sub print_report {
     return unless @repos;
 
     my $table = Text::SimpleTable::AutoWidth->new;
-    my @cols  = ( 'user',   'repo',  'empty?', 'commits', 'branches', 'pullrequests' );
+    my @cols =
+      ( 'user', 'repo', 'empty?', 'commits', 'branches', 'pullrequests' );
     $table->captions( \@cols );
 
     foreach my $repository (@repos) {
         my $report = $repository->report;
+
         # TODO:
         # Check if repository is old?
         my $is_empty = 1;
-	if ( $report->{nb_branches} > 1) {
+        if ( $report->{nb_branches} > 1 ) {
+
             # No doubt, not empty because multiple branches
-    	    $is_empty = 0;
+            $is_empty = 0;
         }
-        if ( $report->{nb_pullrequests} > 0) {
+        if ( $report->{nb_pullrequests} > 0 ) {
+
             # No doubt, not empty because at least one pull request
-    	    $is_empty = 0;
+            $is_empty = 0;
         }
         if ( $report->{nb_commits} > 1 ) {
+
             # No doubt, not empty because more than just a dummy commit
             # It can be a lot of dummy commits xD but that's another story
-    	    $is_empty = 0;
-        } elsif ( $is_empty and $report->{nb_commits} == 1 ) {
-            # Possibly "almost" empty if there is one commit with only a boilerplate file (advised by GitHub UI)
+            $is_empty = 0;
+        }
+        elsif ( $is_empty and $report->{nb_commits} == 1 ) {
+
+# Possibly "almost" empty if there is one commit with only a boilerplate file (advised by GitHub UI)
             foreach my $file ( @{ $report->{files} } ) {
+
                 # Check filename against list of "whitelisted" filenames
-                if ( ! grep /$file/, ( "README.md", ".gitignore", "LICENSE", "CONTRIBUTING.md" )) {
+                if (
+                    !grep /$file/,
+                    ( "README.md", ".gitignore", "LICENSE", "CONTRIBUTING.md" )
+                  )
+                {
                     # Not empty
-        	    $is_empty = 0;
+                    $is_empty = 0;
                 }
             }
         }
-        if ($is_empty and $self->terse) { 
+        if ( $is_empty and $self->terse ) {
             print $repository->user . "/" . $repository->name . "\n";
-        } else {
-            $table->row( $repository->user, 
-                         $repository->name, 
-                         $is_empty ? "YES": "NO", 
-                         $report->{nb_commits} > 1 ? "2+" : $report->{nb_commits}, 
-                         $report->{nb_branches} > 1 ? "2+" : $report->{nb_branches},
-                         $report->{nb_pullrequests} > 1 ? "2+" : $report->{nb_pullrequests},
-                       );
-	}
+        }
+        else {
+            $table->row(
+                $repository->user,
+                $repository->name,
+                $is_empty                  ? "YES" : "NO",
+                $report->{nb_commits} > 1  ? "2+"  : $report->{nb_commits},
+                $report->{nb_branches} > 1 ? "2+"  : $report->{nb_branches},
+                $report->{nb_pullrequests} > 1
+                ? "2+"
+                : $report->{nb_pullrequests},
+            );
+        }
     }
 
-    if (! $self->terse) { print $table->draw };
-
+    if ( !$self->terse ) { print $table->draw }
 
     return;
 }
