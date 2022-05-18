@@ -41,12 +41,12 @@ Expects an Github organization.  Multiple C<--org> args can be supplied.
 
     github-emptyrepository --org libwww-perl
 
-=head2 github-user
+=head2 github_user
 
 The username of your Github account.  You'll need this if you're hitting Github
 API limits.  In most cases this won't be an issue.
 
-=head2 github-token
+=head2 github_token
 
 An API token for your Github account.  You'll need this if you're hitting
 Github API limits or want to access private repositories.  In most cases 
