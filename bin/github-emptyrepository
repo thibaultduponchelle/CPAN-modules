@@ -15,7 +15,7 @@ __END__
 
 =head1 SYNOPSIS
 
-    github-emptyrepository --url oalders/html-restrict
+    github-emptyrepository --org libwww-perl
 
 =head1 ARGS
 
@@ -49,7 +49,8 @@ API limits.  In most cases this won't be an issue.
 =head2 github-token
 
 An API token for your Github account.  You'll need this if you're hitting
-Github API limits.  In most cases this won't be an issue.  See
+Github API limits or want to access private repositories.  In most cases 
+this won't be an issue.  See
 L<https://help.github.com/articles/creating-an-access-token-for-command-line-use>
 for more information.
 

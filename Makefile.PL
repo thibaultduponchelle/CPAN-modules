@@ -17,7 +17,6 @@ my %WriteMakefileArgs = (
   "MIN_PERL_VERSION" => "5.016",
   "NAME" => "GitHub::EmptyRepository",
   "PREREQ_PM" => {
-    "Data::Printer" => 0,
     "File::HomeDir" => 0,
     "LWP::Protocol::https" => "6.10",
     "List::Util" => 0,
@@ -50,7 +49,6 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "Data::Printer" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::HomeDir" => 0,
   "File::Spec" => 0,

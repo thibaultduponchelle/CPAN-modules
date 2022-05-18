@@ -195,17 +195,22 @@ sub print_report {
 
     foreach my $repository (@repos) {
         my $report = $repository->report;
+        # TODO:
+        # 1. Count branches
+	# 2. Count pull requests
+        # 3. Check if repository is old
         my $is_empty = 1;
         if ( $report->{nb_commits} > 1 ) {
             # No doubt, not empty because more than just a dummy commit
             # It can be a lot of dummy commits xD but that's another story
     	    $is_empty = 0;
         } elsif ( $report->{nb_commits} == 0 ) {
-            $is_empty = 1;
             # No doubt, empty
+            $is_empty = 1;
         } else {
             # Possibly "almost" empty if there is one commit with only a boilerplate file (advised by GitHub UI)
             foreach my $file ( @{ $report->{files} } ) {
+                # Check filename against list of "whitelisted" filenames
                 if ( ! grep /$file/, ( "README.md", ".gitignore", "LICENSE", "CONTRIBUTING.md" )) {
                     # Not empty
         	    $is_empty = 0;
@@ -214,8 +219,9 @@ sub print_report {
         }
         if ($is_empty and $self->terse) { 
             print $repository->user . "/" . $repository->name . "\n";
-        }
-        $table->row( $repository->user, $repository->name, $is_empty ? "YES": "NO", $report->{nb_commits} > 1 ? "> 1" : $report->{nb_commits});
+        } else {
+            $table->row( $repository->user, $repository->name, $is_empty ? "YES": "NO", $report->{nb_commits} > 1 ? "2+" : $report->{nb_commits});
+	}
     }
 
     if (! $self->terse) { print $table->draw };
