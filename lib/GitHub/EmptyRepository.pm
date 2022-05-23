@@ -172,8 +172,8 @@ sub _build_report {
 
     foreach my $url (@urls) {
         my $repo = GitHub::EmptyRepository::Repository->new(
-            github_client   => $self->_github_client,
-            url             => $url,
+            github_client => $self->_github_client,
+            url           => $url,
         );
         $report{$url} = $repo;
     }

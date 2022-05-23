@@ -9,7 +9,7 @@ use Pithub::Repos::Commits ();
 
 has github_client => (
     is => 'ro',
-    # isa      => InstanceOf ['Pithub::Repos::Commits'],
+    isa      => InstanceOf ['Pithub::Repos::Commits'],
     required => 1,
 );
 
