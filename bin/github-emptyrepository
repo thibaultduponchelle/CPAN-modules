@@ -58,6 +58,6 @@ for more information.
 
 Enable this if you're hitting API limits or need to speed up response time.
 
-    github-emptyrepository --url https://github.com/oalders/html-restrict --cache-requests
+    github-emptyrepository --url https://github.com/oalders/html-restrict --cache_requests
 
 =cut
