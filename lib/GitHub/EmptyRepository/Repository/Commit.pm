@@ -1,7 +1,7 @@
 package GitHub::EmptyRepository::Repository::Commit;
 use Moo;
 
-our $VERSION = '0.00001';
+our $VERSION = '0.00002';
 
 use MooX::StrictConstructor;
 use Types::Standard qw( ArrayRef Bool Int InstanceOf Str );

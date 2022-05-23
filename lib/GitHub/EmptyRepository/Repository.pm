@@ -2,7 +2,7 @@ package GitHub::EmptyRepository::Repository;
 
 use Moo;
 
-our $VERSION = '0.00001';
+our $VERSION = '0.00002';
 
 use GitHub::EmptyRepository::Repository::Commit ();
 use MooX::StrictConstructor;

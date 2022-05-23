@@ -2,7 +2,7 @@ package GitHub::EmptyRepository;
 
 use Moo 1.007000;
 
-our $VERSION = '0.00001';
+our $VERSION = '0.00002';
 
 use File::HomeDir                       ();
 use GitHub::EmptyRepository::Repository ();

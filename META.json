@@ -102,15 +102,13 @@
       "bugtracker" : {
          "web" : "https://github.com/thibaultduponchelle/github-emptyrepository/issues"
       },
-      "homepage" : "https://github.com/thibaultduponchelle/github-emptyrepository",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/thibaultduponchelle/github-emptyrepository.git",
+         "url" : "git://github.com/thibaultduponchelle/github-emptyrepository.git",
          "web" : "https://github.com/thibaultduponchelle/github-emptyrepository"
       }
    },
-   "resources" : {},
-   "version" : "0.00001",
+   "version" : "0.00002",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.030000"
@@ -663,7 +661,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v0.00001",
+                  "tag" : "v0.00002",
                   "tag_format" : "v%V",
                   "tag_message" : "v%V"
                },
@@ -745,6 +743,11 @@
             },
             "name" : "@Author::OALDERS/Git::Push",
             "version" : "2.048"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::GitHub::Meta",
+            "name" : "GitHub::Meta",
+            "version" : "0.48"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",

@@ -4,7 +4,7 @@ GitHub::EmptyRepository - Scan for empty repositories
 
 # VERSION
 
-version 0.00001
+version 0.00002
 
 # SYNOPSIS
 
