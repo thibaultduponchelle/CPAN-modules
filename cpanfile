@@ -10,6 +10,7 @@ requires "MooX::HandlesVia" => "0";
 requires "MooX::Options" => "0";
 requires "MooX::StrictConstructor" => "0";
 requires "Path::Tiny" => "0";
+requires "Pithub" => "0";
 requires "Pithub::PullRequests" => "0";
 requires "Pithub::Repos" => "0";
 requires "Pithub::Repos::Commits" => "0";
