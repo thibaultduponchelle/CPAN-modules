@@ -217,7 +217,7 @@ sub print_report {
         }
         elsif ( $is_empty and $report->{nb_commits} == 1 ) {
 
-# Possibly "almost" empty if there is one commit with only a boilerplate file (advised by GitHub UI)
+            # Possibly "almost" empty if there is one commit with only a boilerplate file (advised by GitHub UI)
             foreach my $file ( @{ $report->{files} } ) {
 
                 # Check filename against list of "whitelisted" filenames
