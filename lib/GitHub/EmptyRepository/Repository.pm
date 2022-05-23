@@ -9,21 +9,9 @@ use MooX::StrictConstructor;
 use Types::Standard qw( HashRef ArrayRef Bool InstanceOf Str );
 use URI ();
 
-has c_github_client => (
+has github_client => (
     is       => 'ro',
-    isa      => InstanceOf ['Pithub::Repos::Commits'],
-    required => 1,
-);
-
-has r_github_client => (
-    is       => 'ro',
-    isa      => InstanceOf ['Pithub::Repos'],
-    required => 1,
-);
-
-has p_github_client => (
-    is       => 'ro',
-    isa      => InstanceOf ['Pithub::PullRequests'],
+    isa      => InstanceOf ['Pithub'],
     required => 1,
 );
 
@@ -96,7 +84,7 @@ sub _build_report {
 sub _get_commits {
     my $self = shift;
 
-    my $result = $self->c_github_client->list(
+    my $result = $self->github_client->repos->commits->list(
         user   => $self->user,
         repo   => $self->name,
         params => { per_page => 2, state => 'all' },
@@ -110,7 +98,7 @@ sub _get_commits {
 
     while ( my $row = $result->next ) {
         my $commit = GitHub::EmptyRepository::Repository::Commit->new(
-            github_client => $self->c_github_client,
+            github_client => $self->github_client->repos->commits,
             repo          => $self->name,
             user          => $self->user,
             sha           => $row->{sha}
@@ -124,7 +112,7 @@ sub _get_commits {
 sub _get_branches {
     my $self = shift;
 
-    my $result = $self->r_github_client->branches(
+    my $result = $self->github_client->repos->branches(
         user   => $self->user,
         repo   => $self->name,
         params => { per_page => 2, state => 'all' },
@@ -146,7 +134,7 @@ sub _get_branches {
 sub _get_pullrequests {
     my $self = shift;
 
-    my $result = $self->p_github_client->list(
+    my $result = $self->github_client->pull_requests->list(
         user   => $self->user,
         repo   => $self->name,
         params => { per_page => 2, state => 'all' },

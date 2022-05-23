@@ -12,6 +12,7 @@ use MooX::HandlesVia;
 use MooX::Options;
 use MooX::StrictConstructor;
 use Path::Tiny qw( path );
+use Pithub                       ();
 use Pithub::PullRequests         ();
 use Pithub::Repos                ();
 use Pithub::Repos::Commits       ();
@@ -86,25 +87,11 @@ has _report => (
     builder     => '_build_report',
 );
 
-has _c_github_client => (
+has _github_client => (
     is      => 'ro',
-    isa     => InstanceOf ['Pithub::Repos::Commits'],
+    isa     => InstanceOf ['Pithub'],
     lazy    => 1,
-    builder => '_build_c_github_client'
-);
-
-has _r_github_client => (
-    is      => 'ro',
-    isa     => InstanceOf ['Pithub::Repos'],
-    lazy    => 1,
-    builder => '_build_r_github_client'
-);
-
-has _p_github_client => (
-    is      => 'ro',
-    isa     => InstanceOf ['Pithub::PullRequests'],
-    lazy    => 1,
-    builder => '_build_p_github_client'
+    builder => '_build_github_client'
 );
 
 has _mech => (
@@ -114,32 +101,10 @@ has _mech => (
     builder => '_build_mech',
 );
 
-sub _build_c_github_client {
+sub _build_github_client {
     my $self = shift;
 
-    return Pithub::Repos::Commits->new(
-        $self->cache_requests
-            || $self->debug_useragent ? ( ua => $self->_mech ) : (),
-        $self->github_user  ? ( user  => $self->github_user )  : (),
-        $self->github_token ? ( token => $self->github_token ) : (),
-    );
-}
-
-sub _build_r_github_client {
-    my $self = shift;
-
-    return Pithub::Repos->new(
-        $self->cache_requests
-            || $self->debug_useragent ? ( ua => $self->_mech ) : (),
-        $self->github_user  ? ( user  => $self->github_user )  : (),
-        $self->github_token ? ( token => $self->github_token ) : (),
-    );
-}
-
-sub _build_p_github_client {
-    my $self = shift;
-
-    return Pithub::PullRequests->new(
+    return Pithub->new(
         $self->cache_requests
             || $self->debug_useragent ? ( ua => $self->_mech ) : (),
         $self->github_user  ? ( user  => $self->github_user )  : (),
@@ -207,9 +172,7 @@ sub _build_report {
 
     foreach my $url (@urls) {
         my $repo = GitHub::EmptyRepository::Repository->new(
-            c_github_client => $self->_c_github_client,
-            r_github_client => $self->_r_github_client,
-            p_github_client => $self->_p_github_client,
+            github_client   => $self->_github_client,
             url             => $url,
         );
         $report{$url} = $repo;
