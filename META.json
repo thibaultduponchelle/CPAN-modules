@@ -98,6 +98,17 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/thibaultduponchelle/github-emptyrepository/issues"
+      },
+      "homepage" : "https://github.com/thibaultduponchelle/github-emptyrepository",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/thibaultduponchelle/github-emptyrepository.git",
+         "web" : "https://github.com/thibaultduponchelle/github-emptyrepository"
+      }
+   },
    "resources" : {},
    "version" : "0.00001",
    "x_Dist_Zilla" : {
