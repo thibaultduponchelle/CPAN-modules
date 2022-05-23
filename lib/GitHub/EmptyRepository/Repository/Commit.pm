@@ -8,7 +8,7 @@ use Types::Standard qw( ArrayRef Bool Int InstanceOf Str );
 use Pithub::Repos::Commits ();
 
 has github_client => (
-    is => 'ro',
+    is       => 'ro',
     isa      => InstanceOf ['Pithub::Repos::Commits'],
     required => 1,
 );
