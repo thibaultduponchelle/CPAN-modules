@@ -8,7 +8,7 @@ our $VERSION = '1.7';
 
 =head1 NAME
 
-Alien::Boost::ProgramOptions - Wrapper for installing Boost
+Alien::Boost::ProgramOptions - Wrapper for installing Boost.ProgramOptions
 
 =head1 DESCRIPTION
 
