@@ -1,5 +1,13 @@
 Revision history for Alien-Gearman
 
+2.4      Wed Dec 14 2022
+         - Switch to Alien::Boost::ProgramOptions
+         - Switch to Download::GitHub
+
+2.3      Sat Aug 1 2020
+         - Use flag fpermissive see
+         https://github.com/gearman/gearmand/issues/293
+
 2.2      Sun Jul 19 2020
          - Configure require Alien::Boost
 

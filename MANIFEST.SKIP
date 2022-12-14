@@ -1,1 +1,9 @@
-README.pod
+.gitignore
+.git/*
+_alien
+MANIFEST.SKIP
+MANIFEST.bak
+Makefile$
+pm_to_lib
+blib
+MYMETA.*
