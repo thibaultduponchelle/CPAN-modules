@@ -1,11 +1,11 @@
 use Test2::V0 -no_srand => 1;
 use Test::Alien::CPP;
 use Test::Alien::Diag;
-use Alien::Boost;
+use Alien::Boost::Headers;
  
-alien_diag 'Alien::Boost';
+alien_diag 'Alien::Boost::Headers';
  
-alien_ok 'Alien::Boost';
+alien_ok 'Alien::Boost::Headers';
  
 subtest xs => sub {
  
@@ -13,6 +13,7 @@ subtest xs => sub {
 #include "EXTERN.h"
 #include "perl.h"
 #include "XSUB.h"
+#include <boost/version.hpp>
 
 #ifdef do_open(a,b,c,d,e,f,g)
 #undef do_open(a,b,c,d,e,f,g)
@@ -20,7 +21,6 @@ subtest xs => sub {
 #undef do_close(a,b)
 #undef do_close
 #endif
-#include <boost/program_options.hpp>
 #ifndef do_open
 #define do_open                 Perl_do_open
 #define do_open(a,b,c,d,e,f,g)  Perl_do_open(aTHX_ a,b,c,d,e,f,g)
@@ -28,21 +28,21 @@ subtest xs => sub {
 #define do_close(a,b)           Perl_do_close(aTHX_ a,b)
 #endif
 
- 
-MODULE = Boost PACKAGE = Boost
+
+MODULE = Boost::Headers PACKAGE = Boost::Headers
  
 int 
 main()
     INIT:
     CODE:
-      boost::program_options::options_description generic("Generic options");
+      printf("Boost version %s", BOOST_LIB_VERSION);
       RETVAL = 1;
     OUTPUT:
       RETVAL
 EOM
  
   xs_ok $xs, with_subtest {
-    ok(Boost::main());
+    ok(Boost::Headers::main());
   };
  
 };

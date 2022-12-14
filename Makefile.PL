@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 use Alien::Build::MM;
 
 if ( -e '.gitignore' ) {
-    system('podselect lib/Alien/Boost.pm > README.pod');
+    system('podselect lib/Alien/Boost/Headers.pm > README.pod');
 }
 
 if ( $^O eq 'MSWin32' ) {
@@ -13,15 +13,15 @@ if ( $^O eq 'MSWin32' ) {
 }
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Find or build libboost",
+  "ABSTRACT" => "Find or build Boost Headers",
   "AUTHOR" => "Thibault Duponchelle <thibault.duponchelle\@gmail.com>",
-  "VERSION_FROM" => "lib/Alien/Boost.pm",
+  "VERSION_FROM" => "lib/Alien/Boost/Headers.pm",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.52",
   },
-  "DISTNAME" => "Alien-Boost",
+  "DISTNAME" => "Alien-Boost-Headers",
   "LICENSE" => "perl",
-  "NAME" => "Alien::Boost",
+  "NAME" => "Alien::Boost::Headers",
   "PREREQ_PM" => {
     "Alien::Base" => "0.038",
     "Test::Alien" => "0",
@@ -37,9 +37,9 @@ my %WriteMakefileArgs = (
         },
         resources => {
             license     => 'http://dev.perl.org/licenses/',
-            homepage    => 'https://metacpan.org/release/Alien-Boost',
-            bugtracker  => 'https://github.com/thibaultduponchelle/Alien-Boost/issues',
-            repository  => 'https://github.com/thibaultduponchelle/Alien-Boost.git',
+            homepage    => 'https://metacpan.org/release/Alien-Boost-Headers',
+            bugtracker  => 'https://github.com/thibaultduponchelle/Alien-Boost-Headers/issues',
+            repository  => 'https://github.com/thibaultduponchelle/Alien-Boost-Headers.git',
             IRC         => 'irc://irc.perl.org/#native'
         },
     },

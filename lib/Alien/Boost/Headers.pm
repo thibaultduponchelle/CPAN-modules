@@ -1,20 +1,20 @@
-package Alien::Boost;
+package Alien::Boost::Headers;
 
 use strict;
 use warnings;
 use base qw( Alien::Base );
 
-our $VERSION = '1.6';
+our $VERSION = '1.7';
 
 =head1 NAME
 
-Alien::Boost - Wrapper for installing Boost
+Alien::Boost::Headers - Wrapper for installing Boost headers
 
 =head1 DESCRIPTION
 
-Alien::Boost is a wrapper to install Boost library. Modules
-that depend on Boost can depend on Alien::Boost and use the
-CPAN shell to install it for you.
+Alien::Boost::Headers is a wrapper to install Boost headers. Modules
+that depend on Boost headers can depend on Alien::Boost::Headers
+and use the CPAN shell to install it for you.
 
 =head1 AUTHOR
 
@@ -34,10 +34,6 @@ it under the same terms as Perl itself.
 =item * L<Alien>
 
 =back
-
-=head1 REPOSITORY
-
-L<https://github.com/thibaultduponchelle/Alien-Boost>
 
 =cut
 

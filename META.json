@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : 2
    },
-   "name" : "Alien-Boost",
+   "name" : "Alien-Boost-Headers",
    "no_index" : {
       "directory" : [
          "t",
@@ -52,14 +52,14 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/thibaultduponchelle/Alien-Boost/issues"
+         "web" : "https://github.com/thibaultduponchelle/Alien-Boost-Headers/issues"
       },
-      "homepage" : "https://metacpan.org/release/Alien-Boost",
+      "homepage" : "https://metacpan.org/release/Alien-Boost-Headers",
       "license" : [
          "http://dev.perl.org/licenses/"
       ],
       "repository" : {
-         "url" : "https://github.com/thibaultduponchelle/Alien-Boost.git"
+         "url" : "https://github.com/thibaultduponchelle/Alien-Boost-Headers.git"
       },
       "x_IRC" : "irc://irc.perl.org/#native"
    },

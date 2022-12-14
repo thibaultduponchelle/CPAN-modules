@@ -14,7 +14,7 @@ license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: '1.4'
-name: Alien-Boost
+name: Alien-Boost-Headers
 no_index:
   directory:
     - t
@@ -33,10 +33,10 @@ requires:
   Test::Alien::Diag: '0'
 resources:
   IRC: irc://irc.perl.org/#native
-  bugtracker: https://github.com/thibaultduponchelle/Alien-Boost/issues
-  homepage: https://metacpan.org/release/Alien-Boost
+  bugtracker: https://github.com/thibaultduponchelle/Alien-Boost-Headers/issues
+  homepage: https://metacpan.org/release/Alien-Boost-Headers
   license: http://dev.perl.org/licenses/
-  repository: https://github.com/thibaultduponchelle/Alien-Boost.git
+  repository: https://github.com/thibaultduponchelle/Alien-Boost-Headers.git
 version: '1.4'
 x_alienfile:
   generated_by: 'Alien::Build::MM version 2.26'

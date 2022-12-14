@@ -5,22 +5,16 @@ use alienfile;
 # installing it.
 
 plugin 'Probe::CBuilder' => (
-  libs   => '-L/opt/libfoo/lib -lboost_program_options',
+  program => q{
+#include <stdio.h>
+#include <boost/version.hpp>
+int main(int argc, char *argv[])
+{
+  printf("version = '%s'\n", BOOST_LIB_VERSION);
+  return 0;
+}
+},
 );
-
-# Test lib AND header inclusion
-#use ExtUtils::CppGuess;
-#use Devel::CheckLib;
-
-#my $guess = ExtUtils::CppGuess->new;
-#my %mb_opts = $guess->module_build_options;  # even though not using Module::Build
-
-#check_lib_or_exit(
-#    lib => 'boost_program_options',
-#    header => 'boost/program_options.hpp',
-#    ccflags => $mb_opts{extra_compiler_flags},
-#    ldflags  => $mb_opts{extra_linker_flags}
-#);
 
 share {
 
@@ -34,8 +28,10 @@ share {
   plugin 'Extract';
 
   build [
-    './bootstrap.sh --without-libraries=python',
-    './b2 install --prefix=%{.install.prefix} link=static cxxflags=-fPIC',
+    './bootstrap.sh --prefix=%{.install.prefix} --without-libraries=atomic,chrono,container,context,contract,coroutine,date_time,exception,fiber,filesystem,graph,graph_parallel,headers,iostreams,json,locale,log,math,mpi,nowide,program_options,python,random,regex,serialization,stacktrace,system,test,thread,timer,type_erasure,url,wave',
+    './b2 headers',
+    'mkdir -p %{.install.prefix}/include',
+    'cp boost %{.install.prefix}/include -R'
   ];
 
   gather sub {
@@ -43,18 +39,7 @@ share {
     my $prefix = $build->runtime_prop->{prefix};
     $build->runtime_prop->{cflags}        = "-I$prefix/include";
     $build->runtime_prop->{cflags_static} = "-I$prefix/include";
-    $build->runtime_prop->{libs}          = "-L$prefix/lib -lboost_program_options";
-    $build->runtime_prop->{libs_static}   = "-L$prefix/lib -lboost_program_options";
   };
   
-};
-
-sys {
-
-  gather sub {
-    my($build) =@_;
-    $build->runtime_prop->{libs}          = "-lboost_program_options";
-    $build->runtime_prop->{libs_static}   = "-lboost_program_options";
-  };
 };
 
