@@ -1,7 +1,7 @@
 use alienfile;
 
-# If the probe fails to find an already installed libevent, the
-# "share" block contains instructions for downloading and
+# If the probe fails to find an already installed Boost headers, 
+# the "share" block contains instructions for downloading and
 # installing it.
 
 plugin 'Probe::CBuilder' => (
