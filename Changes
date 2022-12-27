@@ -1,0 +1,51 @@
+Revision history for Alien-Libevent
+
+2.8      Wed Aug 06 2020
+         - Add Test::Alien::Diag as prereq
+         - Add Test::Alien as prereq
+
+2.7      Wed Aug 05 2020
+         - No specific version for Test::Alien
+
+2.6      Tue Aug 04 2020
+         - Add XS tests
+         - Add -ldl to fix undefined symbol (does not appear in CPANTesters)
+
+2.5      Thu Jul 16 2020
+         - Search dep Alien::OpenSSL
+         - Put README.pod in the MANIFEST.SKIP
+
+2.4      Tue Jul 14 2020
+         - Use https url so that Alien adds SSL modules to prereqs
+
+2.3      Wed Jul 08 2020
+         - Fix pkg-config for client modules
+
+2.2      Tue Jul 07 2020
+         - META updates
+
+2.1      Tue Jul 07 2020
+         - Documentation updates
+
+2.0      Tue Jul 07 2020
+         - Migrate to alienfile \o/
+         - Use latest libevent
+         - Add repository
+         - Fix syntax issue with Devel::CheckLib
+         - Non-interactive install was broken (?)
+
+0.01004  Tue Jan 05 2010
+         - Fix broken behaviour when answering
+           'really install?' with 'no' # BinGOs++
+
+0.01003  Sat Jan 01 2010
+         - Removed Devel::CheckLib based test
+
+0.01002  Sat Jan 01 2010
+         - Added test using Devel::CheckLib
+
+0.01001  Wed Dec 30 2009
+         - Fix Changes
+
+0.01000  Wed Dec 30 2009
+         - Initial release.
