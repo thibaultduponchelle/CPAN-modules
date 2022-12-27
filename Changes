@@ -1,5 +1,9 @@
 Revision history for Alien-Gearman
 
+2.5      Tue Dec 27 2022
+         - Use gmake for solaris and freebsd and friends
+         - Add prereq Alien::gmake
+
 2.4      Wed Dec 14 2022
          - Switch to Alien::Boost::ProgramOptions
          - Switch to Download::GitHub
