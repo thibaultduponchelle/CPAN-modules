@@ -1,0 +1,19 @@
+name : Alien-Boost-cpanm
+
+on: push
+
+jobs:
+  perl:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: perl -V
+        run: perl -V
+      - name: Install deps for tarball creation
+        run: curl -L https://cpanmin.us | sudo perl - --configure-timeout=1920 Alien::Build::MM
+      - name: Create tarball
+        run: perl Makefile.PL && make dist
+      - name: Install alien
+        run: curl -L https://cpanmin.us | sudo perl - --configure-timeout=1920 Alien-*.tar.gz -v

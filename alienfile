@@ -1,0 +1,45 @@
+use alienfile;
+
+# If the probe fails to find already installed boost headers, 
+# the "share" block contains instructions for downloading and
+# installing them.
+
+plugin 'Probe::CBuilder' => (
+  program => q{
+#include <stdio.h>
+#include <boost/version.hpp>
+int main(int argc, char *argv[])
+{
+  printf("version = '%s'\n", BOOST_LIB_VERSION);
+  return 0;
+}
+},
+);
+
+share {
+
+  start_url 'https://www.boost.org/users/download/';
+  plugin 'Download' => (
+    filter => qr/^boost_[0-9_]*\.tar\.gz$/,
+    version => qr/([0-9_]+)/,
+  );
+
+
+  plugin 'Extract';
+
+  build [
+    './bootstrap.sh --prefix=%{.install.prefix}',
+    './b2 headers',
+    'mkdir -p %{.install.prefix}/include',
+    '%{cp} boost %{.install.prefix}/include -r'
+  ];
+
+  gather sub {
+    my($build) = @_;
+    my $prefix = $build->runtime_prop->{prefix};
+    $build->runtime_prop->{cflags}        = "-I$prefix/include";
+    $build->runtime_prop->{cflags_static} = "-I$prefix/include";
+  };
+  
+};
+
