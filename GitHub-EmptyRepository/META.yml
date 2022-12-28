@@ -1,0 +1,44 @@
+---
+abstract: 'Scan for empty repositories'
+author:
+  - 'Thibault Duponchelle <thibault.duponchelle@gmail.com>, Olaf Alders <olaf@wundercounter.com>'
+build_requires:
+  ExtUtils::MakeMaker: '0'
+  File::Spec: '0'
+  Test::More: '0'
+  strict: '0'
+  warnings: '0'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 7.64, CPAN::Meta::Converter version 2.150010'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: GitHub-EmptyRepository
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  File::HomeDir: '0'
+  LWP::Protocol::https: '6.10'
+  List::Util: '0'
+  Module::Runtime: '0'
+  Moo: '1.007000'
+  MooX::HandlesVia: '0'
+  MooX::Options: '0'
+  MooX::StrictConstructor: '0'
+  Path::Tiny: '0'
+  Pithub: '0'
+  Pithub::PullRequests: '0'
+  Pithub::Repos: '0'
+  Pithub::Repos::Commits: '0'
+  Text::SimpleTable::AutoWidth: '0.09'
+  Types::Standard: '0'
+  URI: '0'
+  WWW::Mechanize::GZip: '0'
+  perl: '5.016'
+version: '0.00002'
+x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
