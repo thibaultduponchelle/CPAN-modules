@@ -1,6 +1,6 @@
 package Net::Cloudflare::DNS::Teal;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use 5.006;
 use strict;
@@ -148,7 +148,7 @@ As of today, this module is NOT production ready.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
