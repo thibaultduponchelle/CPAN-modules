@@ -1,6 +1,6 @@
 package Net::Cloudflare::DNS::Teal;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use 5.006;
 use strict;
@@ -122,12 +122,12 @@ sub teal {
 
 =head1 NAME
 
-Net::Cloudflare::DNS::Teal - You would take another cup of teal?
+Net::Cloudflare::DNS::Teal - Makes your Blue/Green deployments in Cloudflare easy!
 
-Net::Cloudflare::DNS::Teal is a module intended to be used for 
-managing Blue/Green deployments in Cloudflare DNS.
+This module is intended to be used for managing Blue/Green deployments in Cloudflare DNS.
 
-It's compatible with Cloudflare Pages, but can be used for wide range of use cases.
+It's compatible with Cloudflare Pages, but can be used for wider range of use cases.
+(but then think about using a Cloudflare Load Balancer)
 
 Typical use of this module is:
 
@@ -139,13 +139,16 @@ Third, replace live version using C<teal()>.
 
 This module comes with small scripts for ease of command line use (e.g. in CircleCI or GitHub Actions)
 
+When used with Cloudflare Pages, don't use custom domains as blue and green values (but directly the *.pages.dev,
+e.g. blue.example.pages.dev) as pointing custom domains to another custom domains is not possible.
+
 
 As of today, this module is NOT production ready.
 
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
