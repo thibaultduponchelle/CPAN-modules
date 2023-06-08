@@ -1,6 +1,6 @@
 package Net::Cloudflare::DNS::Teal;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use 5.006;
 use strict;
@@ -67,7 +67,8 @@ sub get_live_color {
     my $url = $self->get_live();
     return "blue" if ($url eq $blue);
     return "green" if ($url eq $green); 
-    # At this point there is no live...
+    # Live is not blue nor green
+    return undef; 
 }
 
 # Return dormant URL
@@ -82,12 +83,12 @@ sub get_dormant {
 
     my $res = $dns->get_records(name=>$teal, type=>'CNAME');
     my $live = $res->{result}->[0]->{content};
-    my $dormant = $live eq $blue ? $green : $blue; # if live not in blue nor green, both are dormants (or initialization is wrong)
+    my $dormant = $live eq $blue ? $green : $blue; # Actually, both seems dormants (correct init?)
 
     return $dormant;
 }
 
-# Return dorman color
+# Return dormant color
 # e.g. "green"
 sub get_dormant_color {
     my $self = shift;
@@ -101,11 +102,11 @@ sub get_dormant_color {
 }
 
 # Change target of your entrypoint 
-# example.com IN CNAME blue.example.com
+# example.com IN CNAME blue.example.com (or blue.example.pages.dev in case of Cloudflare Pages)
 # teal...
-# example.com IN CNAME green.example.com
+# example.com IN CNAME green.example.com (or green.example.pages.dev in case of Cloudflare Pages)
 # blue and green stay unchanged, but live and dormant are!
-# If your DNS records are proxied, the DNS changes is effective instantly
+# If your DNS records are proxied (high chance they are), the DNS changes is effective instantly
 sub teal {
     my $self = shift;
 
@@ -148,7 +149,7 @@ As of today, this module is NOT production ready.
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
@@ -166,11 +167,14 @@ Demo
                                                blue       => $ENV{CLOUDFLARE_BLUE},
                                                green      => $ENV{CLOUDFLARE_GREEN}
                                               ); 
+    # OR
+    my $teal = Net::Cloudflare::DNS::Teal->new_from_env(); # Will use environment variables
+
     my $live = $teal->get_live();
     my $live_color = $teal->get_live_color();
     my $dormant = $teal->get_dormant();
     my $dormant_color = $teal->get_dormant_color();
-    $teal->get_teal();
+    $teal->teal();
     ...
 
 =head1 AUTHOR
