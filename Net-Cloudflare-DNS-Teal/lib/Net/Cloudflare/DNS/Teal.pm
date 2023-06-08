@@ -68,7 +68,7 @@ sub get_live_color {
     return "blue" if ($url eq $blue);
     return "green" if ($url eq $green); 
     # Live is not blue nor green
-    return undef; 
+    return ""; 
 }
 
 # Return dormant URL
