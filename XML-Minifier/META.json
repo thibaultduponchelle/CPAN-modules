@@ -56,19 +56,18 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/thibaultduponchelle/XML-Minifier/issues"
+         "web" : "https://github.com/thibaultduponchelle/CPAN-Modules/issues"
       },
-      "homepage" : "https://github.com/thibaultduponchelle/XML-Minifier",
+      "homepage" : "https://github.com/thibaultduponchelle/CPAN-Modules",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/thibaultduponchelle/XML-Minifier.git",
-         "web" : "https://github.com/thibaultduponchelle/XML-Minifier"
+         "url" : "git://github.com/thibaultduponchelle/CPAN-Modules.git",
+         "web" : "https://github.com/thibaultduponchelle/CPAN-Modules"
       }
    },
-   "version" : "1.02",
+   "version" : "1.03",
    "x_contributors" : [
-      "Thibault DUPONCHELLE <thibault.duponchelle@gmail.com>",
-      "thibaultduponchelle <580360+thibaultduponchelle@users.noreply.github.com>"
+      "Thibault DUPONCHELLE <thibault.duponchelle@gmail.com>"
    ],
    "x_serialization_backend" : "JSON::PP version 4.04",
    "x_static_install" : 1
