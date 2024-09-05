@@ -2,7 +2,7 @@ Revision history for Perl extension XML-Minifier
 
 1.03 2024-09-05T14:57:000Z
 
-    - Fix script dir (effectively installing xml-minifier
+    - Fix script dir (effectively installing xml-minifier)
     - Remove Minilla setup (because don't like repo subdir) 
     - Remove cpanfile
     - Migrate to Module::Build
