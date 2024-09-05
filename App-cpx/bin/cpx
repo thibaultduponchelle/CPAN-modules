@@ -96,7 +96,7 @@ sub execute {
     my $b = shift; # bin
 
     if (-f "$ll/bin/$b") {
-    exec "perl", "-Mlocal::lib=$ll", "$ll/bin/$b", @ARGV;
+        exec "perl", "-Mlocal::lib=$ll", "$ll/bin/$b", @ARGV;
     } else {
         print "💀 Executable was found, but not installed correctly\n";
         exit -1;
