@@ -19,6 +19,7 @@ NAME             => 'App::cpx',
     },
     BUILD_REQUIRES => {
         'App::cpm'              => '0',
+	'Search::Elasticsearch::Client::2_0::Direct' => '0',
         'Search::Elasticsearch'  => '0',
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
