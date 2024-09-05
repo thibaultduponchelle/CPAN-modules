@@ -23,6 +23,7 @@
       "build" : {
          "requires" : {
             "App::cpm" : "0",
+            "IO::Socket::SSL" : "1.42",
             "Search::Elasticsearch" : "0",
             "Search::Elasticsearch::Client::2_0::Direct" : "0"
          }
@@ -44,6 +45,6 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.02",
+   "version" : "0.03",
    "x_serialization_backend" : "JSON::PP version 4.12"
 }

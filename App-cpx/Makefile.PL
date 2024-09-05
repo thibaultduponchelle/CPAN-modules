@@ -19,6 +19,7 @@ NAME             => 'App::cpx',
     },
     BUILD_REQUIRES => {
         'App::cpm'              => '0',
+	'IO::Socket::SSL'       => '1.42',
 	'Search::Elasticsearch::Client::2_0::Direct' => '0',
         'Search::Elasticsearch'  => '0',
     },
