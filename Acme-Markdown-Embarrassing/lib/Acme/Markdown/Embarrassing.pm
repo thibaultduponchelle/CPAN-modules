@@ -18,7 +18,7 @@ Acme::Markdown::Embarrassing - Embarrassing the MetaCPAN Markdown converter
 
 =head1 SYNOPYS
 
-This is a toy module to embarrass MetaCPAN Markdown 
+This is a toy module to embarrass MetaCPAN Markdown, reindexing 3.2.
 
 =head1 SEE ALSO
 
