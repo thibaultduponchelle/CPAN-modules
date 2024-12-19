@@ -6,7 +6,7 @@ use warnings;
 
 =head1 NAME
 
-Acme::Version::Same - The great new Acme::Version::Same!
+Acme::Version::Same - Module for testing CPAN Pause indexing
 
 =head1 VERSION
 
