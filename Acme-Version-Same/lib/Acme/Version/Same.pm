@@ -10,7 +10,7 @@ Acme::Version::Same - Module for testing CPAN Pause indexing
 
 =head1 VERSION
 
-Version 0.01
+Version 0.01 patched
 
 =cut
 
